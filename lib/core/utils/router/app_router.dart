@@ -6,6 +6,7 @@ import 'package:scan_canser_detection/presentation/views/create_account.dart';
 import 'package:scan_canser_detection/presentation/views/home_view.dart';
 import 'package:scan_canser_detection/presentation/views/login_view.dart';
 import 'package:scan_canser_detection/presentation/views/on_bording_view.dart';
+import 'package:scan_canser_detection/presentation/views/scan_cancer_whith_camera_view.dart';
 import 'package:scan_canser_detection/presentation/views/splash_view_.dart';
 
 abstract class AppRouter {
@@ -14,6 +15,7 @@ abstract class AppRouter {
   static const kHomeView = '/homeview';
   static const kSignUp = '/signup';
   static const kDistanceOff = '/DistanceOff';
+  static const kScanCancer = '/ScanCancer';
   // edit house
 
   static final router = GoRouter(
@@ -43,11 +45,11 @@ abstract class AppRouter {
         pageBuilder: (context, state) =>
             PageTransitionManager.fadeTransition(HomeView()),
       ),
-      // GoRoute(
-      //   path: kDistanceOff,
-      //   pageBuilder: (context, state) =>
-      //       PageTransitionManager.fadeTransition(const DistanceOffView()),
-      // ),
+      GoRoute(
+        path: kScanCancer,
+        pageBuilder: (context, state) =>
+            PageTransitionManager.fadeTransition(const ScanCancerWhithCameraView()),
+      ),
     ],
   );
 }
