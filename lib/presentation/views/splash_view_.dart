@@ -68,8 +68,7 @@ class _SplashViewbodyState extends State<SplashViewbody>
         final session = Supabase.instance.client.auth.currentSession;
         if (_hasSeenOnboarding == false) {
           GoRouter.of(context).pushReplacement(AppRouter.kOnBoardingView);
-        }
-        if (session != null) {
+        } else if (session != null) {
           GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
         } else {
           GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
