@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
         onPressed: (_) => GoRouter.of(context).push(AppRouter.kScanCancer),
         icon: Container(
           child: Icon(Icons.camera_alt_outlined,
-              color: AppColors.orang, size: 30.r),
+              color: AppColors.primaryColor, size: 30.r),
         ),
         title: ("Add Image"),
         activeColorPrimary: AppColors.error.withOpacity(0.2),
@@ -57,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
     return PersistentBottomNavBarItem(
       icon: Icon(icon),
       title: title,
-      activeColorPrimary: AppColors.primaryColor,
+      activeColorPrimary: AppColors.orang,
       inactiveColorPrimary: AppColors.darkGrey,
       textStyle: context.textTheme.bodySmall,
     );

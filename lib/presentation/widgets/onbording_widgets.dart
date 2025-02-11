@@ -69,7 +69,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
           title: "Share the Report",
           body:
               "After analyzing the image, you can share the report with your doctor or other healthcare providers for further consultation.",
-          image: Image.asset(AppAssets.logo),
+          image: Lottie.asset(AppAssets.onbording3, height: 300),
           decoration: pageDecoration,
         ),
       ],

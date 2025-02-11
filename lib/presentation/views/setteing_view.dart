@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:scan_canser_detection/controllers/auth/auth_cubit.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
+import 'package:scan_canser_detection/core/helper/cach_data.dart';
+import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 
 import '../../core/widgets/responsive_padding.dart';
 
@@ -83,6 +88,9 @@ class _SettingsViewState extends State<SettingsView> {
           TextButton(
             onPressed: () {
               Navigator.pop(context);
+              context.read<AuthCubit>().signOut();
+              // CacheData.clearData(clearData: true);
+              GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
             },
             child: const Text('Log Out'),
           ),

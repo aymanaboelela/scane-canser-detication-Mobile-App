@@ -94,7 +94,7 @@ abstract class AppTheme {
       //!-------------------------------------------------- Body Text Color => Black
       textTheme: TextTheme(
         bodyLarge: TextStyle(
-          fontSize: 16.sp,
+          fontSize: 20.sp,
           color: AppColors.black,
           fontWeight: FontWeight.w600,
         ),
