@@ -109,13 +109,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
         isDense: true,
         prefixIcon: widget.icon != null
-            ? Icon(widget.icon!, color: AppColors.orange)
+            ? Icon(widget.icon!, color: AppColors.primaryColor)
             : null,
         suffixIcon: widget.isVisible == true
             ? IconButton(
                 icon: Icon(
                   isObscure ? Icons.visibility_off : Icons.visibility,
-                  color: widget.isVisibleColor ?? AppColors.orange,
+                  color: widget.isVisibleColor ?? AppColors.primaryColor,
                 ),
                 onPressed: toggleObscureText,
               )
@@ -140,7 +140,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: widget.focusedBorderColor ?? AppColors.orange,
+            color: widget.focusedBorderColor ?? AppColors.primaryColor,
             width: 1.5,
           ),
           borderRadius: BorderRadius.circular(widget.borderRadius ?? 45),

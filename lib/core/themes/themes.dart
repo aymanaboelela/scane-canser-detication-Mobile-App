@@ -8,20 +8,20 @@ abstract class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: AppColors.orange,
-        selectionColor: AppColors.orange.withOpacity(0.3),
-        selectionHandleColor: AppColors.orange,
+        cursorColor: AppColors.primaryColor,
+        selectionColor: AppColors.primaryColor.withOpacity(0.3),
+        selectionHandleColor: AppColors.primaryColor,
       ),
 
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
           overlayColor:
-              WidgetStatePropertyAll(AppColors.orange.withOpacity(0.1)),
-          foregroundColor: const WidgetStatePropertyAll(AppColors.orange),
+              WidgetStatePropertyAll(AppColors.primaryColor.withOpacity(0.1)),
+          foregroundColor: const WidgetStatePropertyAll(AppColors.primaryColor),
           side: WidgetStatePropertyAll(
             BorderSide(
               width: 3,
-              color: AppColors.orange.withOpacity(0.3),
+              color: AppColors.primaryColor.withOpacity(0.3),
             ),
           ),
           shape: WidgetStatePropertyAll(
@@ -62,11 +62,11 @@ abstract class AppTheme {
       ),
       //
 
-      iconTheme: const IconThemeData(color: AppColors.orange),
+      iconTheme: const IconThemeData(color: AppColors.primaryColor),
       switchTheme: const SwitchThemeData(
-        trackOutlineColor: WidgetStatePropertyAll(AppColors.orange),
+        trackOutlineColor: WidgetStatePropertyAll(AppColors.primaryColor),
         thumbColor: WidgetStatePropertyAll(AppColors.white),
-        trackColor: WidgetStatePropertyAll(AppColors.orange),
+        trackColor: WidgetStatePropertyAll(AppColors.primaryColor),
         thumbIcon: WidgetStatePropertyAll(Icon(
           Icons.light_mode,
           color: AppColors.white,
@@ -85,7 +85,7 @@ abstract class AppTheme {
         ),
         scrolledUnderElevation: 0,
         titleSpacing: 0,
-        iconTheme: const IconThemeData(color: AppColors.orange),
+        iconTheme: const IconThemeData(color: AppColors.primaryColor),
         elevation: 0,
         shadowColor: AppColors.black.withOpacity(0.3),
       ),
@@ -111,16 +111,16 @@ abstract class AppTheme {
         //!-------------------------------------------------- Display Text Color => Orange
         displayLarge: TextStyle(
           fontSize: 16.sp,
-          color: AppColors.orange,
+          color: AppColors.primaryColor,
           fontWeight: FontWeight.w600,
         ),
         displayMedium: TextStyle(
           fontSize: 14.sp,
-          color: AppColors.orange,
+          color: AppColors.primaryColor,
           fontWeight: FontWeight.w600,
         ),
         displaySmall: TextStyle(
-          color: AppColors.orange,
+          color: AppColors.primaryColor,
           fontSize: 12.sp,
           fontWeight: FontWeight.w500,
         ),

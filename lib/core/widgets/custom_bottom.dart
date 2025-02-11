@@ -26,7 +26,7 @@ class CustomBottom extends StatelessWidget {
           borderRadius: BorderRadius.circular(45), // شكل الزر
           side: hasBorders
               ? const BorderSide(
-                  color: AppColors.orange, width: 1) // حواف برتقالية
+                  color: AppColors.primaryColor, width: 1) // حواف برتقالية
               : BorderSide.none, // بدون حواف
         ),
       ),
