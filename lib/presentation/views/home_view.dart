@@ -27,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
       const HelpView(),
       const HomeViewBody(),
       const HistoryView(),
-      const SettingView(),
+      const SettingsView(),
     ];
   }
 
