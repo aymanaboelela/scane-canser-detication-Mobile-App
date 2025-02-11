@@ -5,6 +5,8 @@ import 'package:persistent_bottom_nav_bar_2/persistent_tab_view.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
 import 'package:scan_canser_detection/core/utils/router/app_router.dart';
+import 'package:scan_canser_detection/presentation/views/help_view.dart';
+import 'package:scan_canser_detection/presentation/views/history_view.dart';
 import 'package:scan_canser_detection/presentation/views/home_view_body.dart';
 import 'package:scan_canser_detection/presentation/views/setteing_view.dart';
 
@@ -22,10 +24,10 @@ class _HomeViewState extends State<HomeView> {
   List<Widget> _buildScreens() {
     return [
       const HomeViewBody(),
+      const  HelpView(),
       const HomeViewBody(),
-      const HomeViewBody(),
-      const HomeViewBody(),
-      const HomeViewBody(),
+      const HistoryView(),
+      const SettingView(),
     ];
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SettingView extends StatelessWidget {
-  const SettingView({super.key});
+class HistoryView extends StatelessWidget {
+  const HistoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class SettingView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text('Setting View'),
+        Text('History View'),
       ],
     );
   }
