@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
       _buildNavBarItem(Icons.home, "Home"),
       _buildNavBarItem(Icons.health_and_safety, "Help"),
       PersistentBottomNavBarItem(
-        onPressed: (_) => GoRouter.of(context).push(AppRouter.kOnBoardingView),
+        onPressed: (_) => GoRouter.of(context).push(AppRouter.kHomeView),
         icon: Container(
           child: Icon(Icons.camera_alt_outlined,
               color: AppColors.orang, size: 30.r),
