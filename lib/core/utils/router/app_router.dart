@@ -7,8 +7,10 @@ import 'package:scan_canser_detection/presentation/views/early_detection_view.da
 import 'package:scan_canser_detection/presentation/views/home_view.dart';
 import 'package:scan_canser_detection/presentation/views/login_view.dart';
 import 'package:scan_canser_detection/presentation/views/on_bording_view.dart';
+import 'package:scan_canser_detection/presentation/views/privacy_and_policy.dart';
 import 'package:scan_canser_detection/presentation/views/scan_cancer_whith_camera_view.dart';
 import 'package:scan_canser_detection/presentation/views/splash_view_.dart';
+import 'package:scan_canser_detection/presentation/views/teams_in_project.dart';
 import 'package:scan_canser_detection/presentation/views/types_of_skin_cancer_view.dart';
 import 'package:scan_canser_detection/presentation/views/user_manual_view.dart';
 
@@ -22,6 +24,8 @@ abstract class AppRouter {
   static const kTypesOfSkinCancerView = '/typesOfSkinCancerView';
   static const kEarlyDetectionView = '/earlyDetectionView';
   static const kUserManualView = '/userManualView';
+  static const kPrivacyandpolicy = '/privacyAndPolicy';
+  static const kTeamsView= '/teamsView';
   // edit house
 
   static final router = GoRouter(
@@ -70,6 +74,16 @@ abstract class AppRouter {
         path: kUserManualView,
         pageBuilder: (context, state) =>
             PageTransitionManager.fadeTransition(const UserManualView()),
+      ),
+      GoRoute(
+        path: kPrivacyandpolicy,
+        pageBuilder: (context, state) =>
+            PageTransitionManager.fadeTransition(const PrivacyPolicyView()),
+      ),
+      GoRoute(
+        path: kTeamsView,
+        pageBuilder: (context, state) =>
+            PageTransitionManager.fadeTransition(const TeamsView()),
       ),
     ],
   );

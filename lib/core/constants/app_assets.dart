@@ -32,6 +32,11 @@ abstract class AppAssets {
   static const detection23 = 'assets/images/23.png';
   static const detection24 = 'assets/images/24.png';
   static const detection25 = 'assets/images/25.png';
+  static const ayman = 'assets/images/ayman.jpg';
+  static const esam = 'assets/images/esam.jpg';
+
+
+
   
 
 //lson

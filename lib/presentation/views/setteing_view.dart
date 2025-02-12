@@ -147,12 +147,6 @@ class _SettingsViewState extends State<SettingsView> {
                       // Add language selection logic
                     },
                   ),
-                  SettingsSwitch(
-                    title: "Dark Mode",
-                    icon: Icons.dark_mode,
-                    value: _darkMode,
-                    onChanged: (value) => setState(() => _darkMode = value),
-                  ),
                 ],
               ),
               SectionCard(
@@ -168,14 +162,14 @@ class _SettingsViewState extends State<SettingsView> {
                     title: "Privacy Policy",
                     icon: Icons.privacy_tip,
                     onTap: () {
-                      // Add privacy policy navigation
+                      GoRouter.of(context).push(AppRouter.kPrivacyandpolicy);
                     },
                   ),
                   SettingsNavigationItem(
-                    title: "Terms of Service",
+                    title: "Teams Members",
                     icon: Icons.description,
                     onTap: () {
-                      // Add terms of service navigation
+                  GoRouter.of(context).push(AppRouter.kTeamsView);
                     },
                   ),
                 ],
