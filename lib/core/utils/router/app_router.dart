@@ -8,6 +8,7 @@ import 'package:scan_canser_detection/presentation/views/login_view.dart';
 import 'package:scan_canser_detection/presentation/views/on_bording_view.dart';
 import 'package:scan_canser_detection/presentation/views/scan_cancer_whith_camera_view.dart';
 import 'package:scan_canser_detection/presentation/views/splash_view_.dart';
+import 'package:scan_canser_detection/presentation/views/types_of_skin_cancer_view.dart';
 
 abstract class AppRouter {
   static const kOnBoardingView = '/onboardingView';
@@ -16,6 +17,7 @@ abstract class AppRouter {
   static const kSignUp = '/signup';
   static const kDistanceOff = '/DistanceOff';
   static const kScanCancer = '/ScanCancer';
+  static const kTypesOfSkinCancerView = '/typesOfSkinCancerView';
   // edit house
 
   static final router = GoRouter(
@@ -47,8 +49,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kScanCancer,
+        pageBuilder: (context, state) => PageTransitionManager.fadeTransition(
+            const ScanCancerWhithCameraView()),
+      ),
+      GoRoute(
+        path: kTypesOfSkinCancerView,
         pageBuilder: (context, state) =>
-            PageTransitionManager.fadeTransition(const ScanCancerWhithCameraView()),
+            PageTransitionManager.fadeTransition(const TypesOfSkinCancerView()),
       ),
     ],
   );
