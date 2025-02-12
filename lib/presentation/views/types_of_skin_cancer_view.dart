@@ -126,7 +126,6 @@ class CustomTypesOfSkinCancerItem extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontFamily: font,
-              fontStyle: FontStyle.italic,
             ),
           ),
           SizedBox(
