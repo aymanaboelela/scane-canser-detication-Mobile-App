@@ -106,21 +106,25 @@ class HomeViewBody extends StatelessWidget {
                     SizedBox(
                       height: 12,
                     ),
-                    Center(
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.lightBlueAccent.shade700,
+                    InkWell(
+                      onTap: () => GoRouter.of(context)
+                          .push(AppRouter.kEarlyDetectionView),
+                      child: Center(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.lightBlueAccent.shade700,
+                            ),
+                            borderRadius: BorderRadius.circular(50),
                           ),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Text(
-                          "Read More",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                          child: Text(
+                            "Read More",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                     )
@@ -130,10 +134,14 @@ class HomeViewBody extends StatelessWidget {
             ),
             SizedBox(height: 12),
             FadeInUp(
-              child: CustomContainerTips(
-                  title:
-                      "Please read this manual\ncarefully to prevent any\npossible misunderstanding",
-                  image: AppAssets.detection),
+              child: InkWell(
+                onTap: () => GoRouter.of(context)
+                    .push(AppRouter.kUserManualView,),
+                child: CustomContainerTips(
+                    title:
+                        "Please read this manual\ncarefully to prevent any\npossible misunderstanding",
+                    image: AppAssets.detection),
+              ),
             ),
             SizedBox(
               height: 20,

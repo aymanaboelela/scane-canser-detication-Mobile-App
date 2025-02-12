@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:persistent_bottom_nav_bar_2/persistent_tab_view.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
-import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 import 'package:scan_canser_detection/presentation/views/help_view.dart';
 import 'package:scan_canser_detection/presentation/views/history_view.dart';
 import 'package:scan_canser_detection/presentation/views/home_view_body.dart';
 import 'package:scan_canser_detection/presentation/views/setteing_view.dart';
+import 'package:scan_canser_detection/presentation/widgets/open_image_source_bottom_sheet.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -36,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
       _buildNavBarItem(Icons.home, "Home"),
       _buildNavBarItem(Icons.health_and_safety, "Help"),
       PersistentBottomNavBarItem(
-        onPressed: (_) => GoRouter.of(context).push(AppRouter.kScanCancer),
+        onPressed: (_) => openImageSourceBottomSheet(context),
         icon: Container(
           child: Icon(Icons.camera_alt_outlined,
               color: AppColors.primaryColor, size: 30.r),
@@ -92,3 +91,4 @@ class _HomeViewState extends State<HomeView> {
         navBarStyle: NavBarStyle.style16);
   }
 }
+
