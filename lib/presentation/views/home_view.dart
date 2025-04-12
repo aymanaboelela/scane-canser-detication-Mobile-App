@@ -38,10 +38,10 @@ class _HomeViewState extends State<HomeView> {
         onPressed: (_) => openImageSourceBottomSheet(context),
         icon: Container(
           child: Icon(Icons.camera_alt_outlined,
-              color: AppColors.primaryColor, size: 30.r),
+              color: AppColors.white, size: 30.r),
         ),
         title: ("Add Image"),
-        activeColorPrimary: AppColors.error.withOpacity(0.2),
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: AppColors.darkGrey,
         textStyle: context.textTheme.bodySmall?.copyWith(
           fontSize: 10.sp,
@@ -56,7 +56,7 @@ class _HomeViewState extends State<HomeView> {
     return PersistentBottomNavBarItem(
       icon: Icon(icon),
       title: title,
-      activeColorPrimary: AppColors.orang,
+      activeColorPrimary: AppColors.orange,
       inactiveColorPrimary: AppColors.darkGrey,
       textStyle: context.textTheme.bodySmall,
     );
@@ -91,4 +91,3 @@ class _HomeViewState extends State<HomeView> {
         navBarStyle: NavBarStyle.style16);
   }
 }
-

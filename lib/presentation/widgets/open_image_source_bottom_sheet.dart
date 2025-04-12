@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
+import 'package:scan_canser_detection/data/use_cases/pickImage_use_case.dart';
 
-void openImageSourceBottomSheet(BuildContext context) {
+void openImageSourceBottomSheet(
+  BuildContext context,
+  // Function(ImageUploadData) onImagePicked,
+) {
+  final imagePicker = PickImageUseCase();
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (context) {
       return AnimatedContainer(
-        duration: Duration(milliseconds: 700),
+        duration: const Duration(milliseconds: 700),
         curve: Curves.easeInOut,
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -19,19 +25,22 @@ void openImageSourceBottomSheet(BuildContext context) {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
-              leading: Icon(Icons.camera, color: AppColors.primaryColor),
-              title: Text("Take a Photo"),
-              onTap: () {
-                // Add functionality for opening the camera
+              leading: const Icon(Icons.camera, color: AppColors.primaryColor),
+              title: const Text("Take a Photo"),
+              onTap: () async {
                 Navigator.pop(context);
+                final data = await imagePicker.pickImageFromCamera();
+                // if (data != null) onImagePicked(data);
               },
             ),
             ListTile(
-              leading: Icon(Icons.photo_album, color: AppColors.primaryColor),
-              title: Text("Choose from Gallery"),
-              onTap: () {
-                // Add functionality for selecting from gallery
+              leading:
+                  const Icon(Icons.photo_album, color: AppColors.primaryColor),
+              title: const Text("Choose from Gallery"),
+              onTap: () async {
                 Navigator.pop(context);
+                final data = await imagePicker.pickImageFromGallery();
+                // if (data != null) onImagePicked(data);
               },
             ),
           ],

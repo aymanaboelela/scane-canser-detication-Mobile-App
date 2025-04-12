@@ -1,0 +1,2 @@
+D:/progect in flutter/scan_canser_detection/android/app/.cxx/Debug/4uk6h4s3/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/progect in flutter/scan_canser_detection/android/app/.cxx/Debug/4uk6h4s3/arm64-v8a/CMakeFiles/rebuild_cache.dir

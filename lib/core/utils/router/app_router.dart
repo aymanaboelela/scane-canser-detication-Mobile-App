@@ -1,10 +1,13 @@
 // import 'package:akodo_api/features/addHouse/presentation/controller/addhouse/add_house_stite.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scan_canser_detection/controllers/call/call_cubit.dart';
 import 'package:scan_canser_detection/core/utils/router/page_transition.dart';
 import 'package:scan_canser_detection/presentation/views/create_account.dart';
 import 'package:scan_canser_detection/presentation/views/early_detection_view.dart';
 import 'package:scan_canser_detection/presentation/views/home_view.dart';
+import 'package:scan_canser_detection/presentation/views/info_ditection_view.dart';
 import 'package:scan_canser_detection/presentation/views/login_view.dart';
 import 'package:scan_canser_detection/presentation/views/on_bording_view.dart';
 import 'package:scan_canser_detection/presentation/views/privacy_and_policy.dart';
@@ -25,7 +28,8 @@ abstract class AppRouter {
   static const kEarlyDetectionView = '/earlyDetectionView';
   static const kUserManualView = '/userManualView';
   static const kPrivacyandpolicy = '/privacyAndPolicy';
-  static const kTeamsView= '/teamsView';
+  static const kTeamsView = '/teamsView';
+  static const kInfoDitectionView = '/InfoDitectionView';
   // edit house
 
   static final router = GoRouter(
@@ -79,6 +83,14 @@ abstract class AppRouter {
         path: kPrivacyandpolicy,
         pageBuilder: (context, state) =>
             PageTransitionManager.fadeTransition(const PrivacyPolicyView()),
+      ),
+      GoRoute(
+        path: kInfoDitectionView,
+        pageBuilder: (context, state) =>
+            PageTransitionManager.fadeTransition(BlocProvider(
+          create: (context) => CallCubit(),
+          child: InfoDetectionView(),
+        )),
       ),
       GoRoute(
         path: kTeamsView,

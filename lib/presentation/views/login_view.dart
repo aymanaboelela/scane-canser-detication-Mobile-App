@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginView> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-          GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+          GoRouter.of(context)..pushReplacement(AppRouter.kHomeView);
         } else if (state is LoginError) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message)),
