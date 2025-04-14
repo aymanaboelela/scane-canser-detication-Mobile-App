@@ -38,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
         onPressed: (_) => openImageSourceBottomSheet(context),
         icon: Container(
           child: Icon(Icons.camera_alt_outlined,
-              color: AppColors.white, size: 30.r),
+              color: const Color.fromRGBO(255, 255, 255, 1), size: 30.r),
         ),
         title: ("Add Image"),
         activeColorPrimary: AppColors.primaryColor,

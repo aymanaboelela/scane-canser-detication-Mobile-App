@@ -1,16 +1,22 @@
+import 'dart:io';
+
 class DetectionModel {
-  final String id;
-  final String imagePath;
+  final String? id;
+  final String? imagePath;
+  final File? image;
   final String name;
-  final String patientId;
+  final String? patientId;
   final String description;
-  final double probability;
+  final String? malignancyStatus;
+  final String probability;
 
   DetectionModel({
-    required this.id,
-    required this.imagePath,
+    this.id,
+    this.imagePath,
+    this.image,
     required this.name,
-    required this.patientId,
+    this.patientId,
+    this.malignancyStatus,
     required this.description,
     required this.probability,
   });
@@ -18,19 +24,20 @@ class DetectionModel {
   factory DetectionModel.fromMap(Map<String, dynamic> map) {
     return DetectionModel(
       id: map['id'],
+      malignancyStatus: map['malignancy_status'],
       imagePath: map['image_path'],
       name: map['name'],
       patientId: map['patient_id'],
       description: map['description'] ?? '',
-      probability: (map['probability'] as num).toDouble(),
+      probability: (map['probability']),
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-   
       'image_path': imagePath,
       'name': name,
+      "malignancy_status": malignancyStatus,
       'patient_id': patientId,
       'description': description,
       'probability': probability,

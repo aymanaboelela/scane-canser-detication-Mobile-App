@@ -10,7 +10,7 @@ class DetictionCubit extends Cubit<DetictionState> {
 
   DetictionCubit(this.detectionService) : super(DetictionInitial());
 
-  Future<void> insertDetection(DetectionModel model) async {
+  Future<void> insertDetection({ required DetectionModel model}) async {
     emit(DetictionLoading());
 
     final result = await detectionService.insertDetectionModel(model);

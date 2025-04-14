@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
+import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 import 'package:scan_canser_detection/data/use_cases/pickImage_use_case.dart';
 
 void openImageSourceBottomSheet(
@@ -28,8 +30,13 @@ void openImageSourceBottomSheet(
               leading: const Icon(Icons.camera, color: AppColors.primaryColor),
               title: const Text("Take a Photo"),
               onTap: () async {
-                Navigator.pop(context);
+              
                 final data = await imagePicker.pickImageFromCamera();
+                  Navigator.pop(context);
+                GoRouter.of(context).push(
+                  AppRouter.kInfoDitectionView,
+                  extra: data!.file,
+                );
                 // if (data != null) onImagePicked(data);
               },
             ),
@@ -38,9 +45,13 @@ void openImageSourceBottomSheet(
                   const Icon(Icons.photo_album, color: AppColors.primaryColor),
               title: const Text("Choose from Gallery"),
               onTap: () async {
-                Navigator.pop(context);
+          
                 final data = await imagePicker.pickImageFromGallery();
-                // if (data != null) onImagePicked(data);
+                 Navigator.pop(context);
+                GoRouter.of(context).push(
+                  AppRouter.kInfoDitectionView,
+                  extra: data!.file,
+                );
               },
             ),
           ],

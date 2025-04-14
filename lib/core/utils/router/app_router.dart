@@ -1,5 +1,7 @@
 // import 'package:akodo_api/features/addHouse/presentation/controller/addhouse/add_house_stite.dart';
 
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scan_canser_detection/controllers/call/call_cubit.dart';
@@ -89,7 +91,9 @@ abstract class AppRouter {
         pageBuilder: (context, state) =>
             PageTransitionManager.fadeTransition(BlocProvider(
           create: (context) => CallCubit(),
-          child: InfoDetectionView(),
+          child: InfoDetectionView(
+            image: state.extra as File,
+          ),
         )),
       ),
       GoRoute(

@@ -7,7 +7,9 @@ class DetictionInitial extends DetictionState {}
 
 class DetictionLoading extends DetictionState {}
 
-class DetictionSuccess extends DetictionState {}
+class DetictionSuccess extends DetictionState {
+  
+}
 
 class DetictionFailure extends DetictionState {
   final String message;
