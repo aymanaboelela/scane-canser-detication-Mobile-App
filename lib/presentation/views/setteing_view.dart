@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scan_canser_detection/controllers/auth/auth_cubit.dart';
+import 'package:scan_canser_detection/core/constants/app_cach_data.dart';
+import 'package:scan_canser_detection/core/constants/constans.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
 import 'package:scan_canser_detection/core/helper/cach_data.dart';
 import 'package:scan_canser_detection/core/utils/router/app_router.dart';
@@ -18,10 +20,10 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   bool _pushNotifications = true;
   bool _emailNotifications = false;
-  bool _darkMode = false;
+  bool darkMode = false;
   bool _dataSharing = true;
-  String _name = "John Doe";
-  String _email = "john@cancerdetection.com";
+  String _name = CacheData.getData(key: AppCacheData.userName);
+  String _email = CacheData.getData(key: AppCacheData.email);
 
   void _showEditProfileSheet() {
     final nameController = TextEditingController(text: _name);
@@ -165,13 +167,13 @@ class _SettingsViewState extends State<SettingsView> {
                       GoRouter.of(context).push(AppRouter.kPrivacyandpolicy);
                     },
                   ),
-                  SettingsNavigationItem(
-                    title: "Teams Members",
-                    icon: Icons.description,
-                    onTap: () {
-                  GoRouter.of(context).push(AppRouter.kTeamsView);
-                    },
-                  ),
+                  // SettingsNavigationItem(
+                  //   title: "Teams Members",
+                  //   icon: Icons.description,
+                  //   onTap: () {
+                  //     GoRouter.of(context).push(AppRouter.kTeamsView);
+                  //   },
+                  // ),
                 ],
               ),
               LogoutButton(onPressed: _confirmLogout),
@@ -226,10 +228,10 @@ class ProfileSection extends StatelessWidget {
                 ],
               ),
             ),
-            IconButton(
-              icon: const Icon(Icons.edit),
-              onPressed: onEditPressed,
-            ),
+            // IconButton(
+            //   icon: const Icon(Icons.edit),
+            //   onPressed: onEditPressed,
+            // ),
           ],
         ),
       ),

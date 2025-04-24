@@ -20,16 +20,18 @@ class _HomeViewState extends State<HomeView> {
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
 
+  // إعادة ترتيب الشاشات لتجنب التكرار
   List<Widget> _buildScreens() {
     return [
       const HomeViewBody(),
       const HelpView(),
-      const HomeViewBody(),
+      const SettingsView(),
       const HistoryView(),
       const SettingsView(),
     ];
   }
 
+  // إنشاء العناصر الخاصة بشريط التنقل السفلي
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       _buildNavBarItem(Icons.home, "Home"),
@@ -52,6 +54,7 @@ class _HomeViewState extends State<HomeView> {
     ];
   }
 
+  // بناء عنصر في شريط التنقل السفلي
   PersistentBottomNavBarItem _buildNavBarItem(IconData icon, String title) {
     return PersistentBottomNavBarItem(
       icon: Icon(icon),
@@ -71,13 +74,13 @@ class _HomeViewState extends State<HomeView> {
         confineInSafeArea: true,
         padding: const NavBarPadding.all(5),
         itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 200),
-          curve: Curves.ease,
+          duration: Duration(milliseconds: 300), // زيادة المدة لتقليل السرعة
+          curve: Curves.easeInOut,
         ),
         screenTransitionAnimation: const ScreenTransitionAnimation(
           animateTabTransition: true,
-          duration: Duration(milliseconds: 500),
-          curve: Curves.ease,
+          duration: Duration(milliseconds: 300), // تقليل السرعة لرسوم الانتقال
+          curve: Curves.easeInOut,
         ),
         backgroundColor: AppColors.white,
         handleAndroidBackButtonPress: true,

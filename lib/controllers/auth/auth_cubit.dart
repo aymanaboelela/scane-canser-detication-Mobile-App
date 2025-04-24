@@ -99,6 +99,9 @@ class AuthCubit extends Cubit<AuthState> {
       CacheData.setData(
           key: AppCacheData.userName,
           value: response.user?.userMetadata?['username']);
+      CacheData.setData(
+          key: AppCacheData.email,
+          value: response.user?.email);
     } on AuthException catch (e) {
       log("login the error is **** ${e.message}");
 

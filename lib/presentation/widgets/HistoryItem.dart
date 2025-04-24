@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scan_canser_detection/core/constants/app_assets.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 import 'package:scan_canser_detection/data/models/detication_model.dart';
@@ -31,7 +29,8 @@ class HistoryItem extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          // GoRouter.of(context).push(AppRouter.kInfoDitectionView);
+          GoRouter.of(context)
+              .push(AppRouter.kInfoDitectionHistoryView, extra: detectionModel);
         },
         child: Container(
           margin: EdgeInsets.all(8),
@@ -75,7 +74,24 @@ class HistoryItem extends StatelessWidget {
                 child: Image.network(
                   detectionModel.imagePath ?? '',
                   width: 170.w,
-                  errorBuilder: (_, __, ___) => Icon(Icons.broken_image),
+                  fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child; // تظهر الصورة عندما يتم تحميلها بالكامل
+                    } else {
+                      // دائرة تحميل أثناء تحميل الصورة
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  (loadingProgress.expectedTotalBytes ?? 1)
+                              : null,
+                        ),
+                      );
+                    }
+                  },
+                  errorBuilder: (context, error, stackTrace) =>
+                      Icon(Icons.broken_image), // في حالة وجود خطأ في التحميل
                 ),
               ),
             ],

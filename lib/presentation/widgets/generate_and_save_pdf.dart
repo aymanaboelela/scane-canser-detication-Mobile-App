@@ -12,60 +12,67 @@ Future<void> generateAndSavePDF({
 }) async {
   final pdf = pw.Document();
 
-  final imageBytes = await rootBundle.load(imagePath);
-  final image = pw.MemoryImage(imageBytes.buffer.asUint8List());
+  try {
+    // تحميل الصورة من assets
+    final imageBytes = await rootBundle.load(imagePath);
+    final image = pw.MemoryImage(imageBytes.buffer.asUint8List());
 
-  pdf.addPage(
-    pw.Page(
-      margin: const pw.EdgeInsets.all(20),
-      build: (pw.Context context) {
-        return pw.Column(
-          crossAxisAlignment: pw.CrossAxisAlignment.start,
-          children: [
-            pw.Center(
-              child: pw.Image(image, height: 200),
-            ),
-            pw.SizedBox(height: 20),
-            pw.Text(
-              "Detection Result",
-              style: pw.TextStyle(
-                fontSize: 24,
-                fontWeight: pw.FontWeight.bold,
+    // إضافة صفحة PDF
+    pdf.addPage(
+      pw.Page(
+        margin: const pw.EdgeInsets.all(20),
+        build: (pw.Context context) {
+          return pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Center(
+                child: pw.Image(image, height: 200),
               ),
-            ),
-            pw.SizedBox(height: 12),
-            pw.Text(
-              "Cancer Type: $cancerName",
-              style: pw.TextStyle(fontSize: 18),
-            ),
-            pw.Text(
-              "Probability: ${probability.toStringAsFixed(1)}%",
-              style: pw.TextStyle(fontSize: 16),
-            ),
-            pw.SizedBox(height: 12),
-            pw.Text(
-              "Description:",
-              style: pw.TextStyle(
-                fontWeight: pw.FontWeight.bold,
-                fontSize: 16,
+              pw.SizedBox(height: 20),
+              pw.Text(
+                "Detection Result",
+                style: pw.TextStyle(
+                  fontSize: 24,
+                  fontWeight: pw.FontWeight.bold,
+                ),
               ),
-            ),
-            pw.Text(
-              description,
-              style: pw.TextStyle(fontSize: 14),
-            ),
-          ],
-        );
-      },
-    ),
-  );
+              pw.SizedBox(height: 12),
+              pw.Text(
+                "Cancer Type: $cancerName",
+                style: pw.TextStyle(fontSize: 18),
+              ),
+              pw.Text(
+                "Probability: ${probability.toStringAsFixed(1)}%",
+                style: pw.TextStyle(fontSize: 16),
+              ),
+              pw.SizedBox(height: 12),
+              pw.Text(
+                "Description:",
+                style: pw.TextStyle(
+                  fontWeight: pw.FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              pw.Text(
+                description,
+                style: pw.TextStyle(fontSize: 14),
+              ),
+            ],
+          );
+        },
+      ),
+    );
 
-  // 📥 Get path & save PDF
-  final outputDir = await getTemporaryDirectory();
-  final filePath = "${outputDir.path}/re_cancer_result.pdf";
-  final file = File(filePath);
-  await file.writeAsBytes(await pdf.save());
+    // 📥 Get path & save PDF in external storage (Downloads folder)
+    final outputDir = await getExternalStorageDirectory();
+    final filePath =
+        "${outputDir?.path}/Download/re_cancer_result.pdf"; // Saving in Download folder
+    final file = File(filePath);
+    await file.writeAsBytes(await pdf.save());
 
-  // Optional: You can open it or show snackbar
-  print("PDF saved at: $filePath");
+    // Optional: You can open it or show snackbar
+    print("PDF saved at: $filePath");
+  } catch (e) {
+    print("Error generating PDF: $e");
+  }
 }

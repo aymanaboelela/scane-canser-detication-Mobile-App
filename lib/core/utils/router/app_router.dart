@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scan_canser_detection/controllers/call/call_cubit.dart';
 import 'package:scan_canser_detection/core/utils/router/page_transition.dart';
+import 'package:scan_canser_detection/data/models/detication_model.dart';
+import 'package:scan_canser_detection/presentation/views/Info_detection_history_view.dart';
 import 'package:scan_canser_detection/presentation/views/create_account.dart';
 import 'package:scan_canser_detection/presentation/views/early_detection_view.dart';
 import 'package:scan_canser_detection/presentation/views/home_view.dart';
@@ -32,6 +34,7 @@ abstract class AppRouter {
   static const kPrivacyandpolicy = '/privacyAndPolicy';
   static const kTeamsView = '/teamsView';
   static const kInfoDitectionView = '/InfoDitectionView';
+  static const kInfoDitectionHistoryView = '/InfoDitectionHistoryView';
   // edit house
 
   static final router = GoRouter(
@@ -95,6 +98,12 @@ abstract class AppRouter {
             image: state.extra as File,
           ),
         )),
+      ),
+      GoRoute(
+        path: kInfoDitectionHistoryView,
+        pageBuilder: (context, state) => PageTransitionManager.fadeTransition(
+         InfoDetectionHistoryView(detectionModel:  state.extra as DetectionModel,),
+        ),
       ),
       GoRoute(
         path: kTeamsView,

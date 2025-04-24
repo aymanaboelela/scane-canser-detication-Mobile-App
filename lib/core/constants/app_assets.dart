@@ -1,5 +1,5 @@
 abstract class AppAssets {
-  static const logo = 'assets/images/logo.png';
+  static const logo = 'assets/images/logoApp.jpg';
 
   static const testCanser = 'assets/images/testcansr.jpeg';
   static const ight = 'assets/images/ighte.png';
@@ -34,10 +34,6 @@ abstract class AppAssets {
   static const detection25 = 'assets/images/25.png';
   static const ayman = 'assets/images/ayman.jpg';
   static const esam = 'assets/images/esam.jpg';
-
-
-
-  
 
 //lson
   static const test = 'assets/josn/test.json';
