@@ -104,23 +104,23 @@ class InfoDetectionHistoryView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: () async {
-                      await generateAndSavePDF(
-                        cancerName: detectionModel.name,
-                        probability: double.tryParse(
-                                detectionModel.probability.replaceAll('%', '')) ??
-                            0.0,
-                        description: detectionModel.description,
-                        imagePath: detectionModel.imagePath ?? '',
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("تم حفظ الملف PDF بنجاح")),
-                      );
-                    },
-                    icon: const Icon(Icons.picture_as_pdf),
-                    label: const Text("Download PDF"),
-                  ),
+                  // ElevatedButton.icon(
+                  //   onPressed: () async {
+                  //     await generateAndSavePDF(
+                  //       cancerName: detectionModel.name,
+                  //       probability: double.tryParse(
+                  //               detectionModel.probability.replaceAll('%', '')) ??
+                  //           0.0,
+                  //       description: detectionModel.description,
+                  //       imagePath: detectionModel.imagePath ?? '',
+                  //     );
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //       const SnackBar(content: Text("تم حفظ الملف PDF بنجاح")),
+                  //     );
+                  //   },
+                  //   icon: const Icon(Icons.picture_as_pdf),
+                  //   label: const Text("Download PDF"),
+               //   ),
                   ElevatedButton.icon(
                     onPressed: () {
                       context.read<CallCubit>().whatsApp(

@@ -126,25 +126,25 @@ class InfoDetectionView extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ElevatedButton.icon(
-                            onPressed: () async {
-                              await generateAndSavePDF(
-                                cancerName: diagnosis.primaryDiagnosis,
-                                probability: double.tryParse(diagnosis
-                                        .confidenceLevel
-                                        .replaceAll('%', '')) ??
-                                    0.0,
-                                description: diagnosis.actionRequired,
-                                imagePath: image.path,
-                              );
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text("تم حفظ الملف PDF بنجاح")),
-                              );
-                            },
-                            icon: const Icon(Icons.picture_as_pdf),
-                            label: const Text("Download PDF"),
-                          ),
+                          // ElevatedButton.icon(
+                          //   onPressed: () async {
+                          //     await generateAndSavePDF(
+                          //       cancerName: diagnosis.primaryDiagnosis,
+                          //       probability: double.tryParse(diagnosis
+                          //               .confidenceLevel
+                          //               .replaceAll('%', '')) ??
+                          //           0.0,
+                          //       description: diagnosis.actionRequired,
+                          //       imagePath: image.path,
+                          //     );
+                          //     ScaffoldMessenger.of(context).showSnackBar(
+                          //       const SnackBar(
+                          //           content: Text("تم حفظ الملف PDF بنجاح")),
+                          //     );
+                          //   },
+                          //   icon: const Icon(Icons.picture_as_pdf),
+                          //   label: const Text("Download PDF"),
+                          // ),
                           ElevatedButton.icon(
                             onPressed: () {
                               context.read<CallCubit>().whatsApp(
