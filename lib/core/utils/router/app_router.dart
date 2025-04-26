@@ -10,6 +10,7 @@ import 'package:scan_canser_detection/data/models/detication_model.dart';
 import 'package:scan_canser_detection/presentation/views/Info_detection_history_view.dart';
 import 'package:scan_canser_detection/presentation/views/create_account.dart';
 import 'package:scan_canser_detection/presentation/views/early_detection_view.dart';
+import 'package:scan_canser_detection/presentation/views/forget_paswoed.dart';
 import 'package:scan_canser_detection/presentation/views/home_view.dart';
 import 'package:scan_canser_detection/presentation/views/info_ditection_view.dart';
 import 'package:scan_canser_detection/presentation/views/login_view.dart';
@@ -35,6 +36,7 @@ abstract class AppRouter {
   static const kTeamsView = '/teamsView';
   static const kInfoDitectionView = '/InfoDitectionView';
   static const kInfoDitectionHistoryView = '/InfoDitectionHistoryView';
+  static const kForgetPassword = '/kForgetPassword';
   // edit house
 
   static final router = GoRouter(
@@ -109,6 +111,11 @@ abstract class AppRouter {
         path: kTeamsView,
         pageBuilder: (context, state) =>
             PageTransitionManager.fadeTransition(const TeamsView()),
+      ),
+      GoRoute(
+        path: kForgetPassword,
+        pageBuilder: (context, state) =>
+            PageTransitionManager.fadeTransition(const ForgotPassword()),
       ),
     ],
   );

@@ -21,6 +21,8 @@ class AuthCubit extends Cubit<AuthState> {
 
     try {
       final AuthResponse response = await supabase.auth.signUp(
+        emailRedirectTo:
+            "https://createdone33.blogspot.com/2025/04/blog-post.html?m=0",
         data: {
           "username": userName,
         },
@@ -99,9 +101,7 @@ class AuthCubit extends Cubit<AuthState> {
       CacheData.setData(
           key: AppCacheData.userName,
           value: response.user?.userMetadata?['username']);
-      CacheData.setData(
-          key: AppCacheData.email,
-          value: response.user?.email);
+      CacheData.setData(key: AppCacheData.email, value: response.user?.email);
     } on AuthException catch (e) {
       log("login the error is **** ${e.message}");
 
@@ -136,7 +136,8 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> resetPassword({required String email}) async {
     emit(ResetPasswordLoading());
     try {
-      await supabase.auth.resetPasswordForEmail(email);
+      await supabase.auth.resetPasswordForEmail(email,
+          captchaToken: "5000", redirectTo: "50000");
       emit(ResetPasswordSuccess());
     } on Exception catch (e) {
       emit(ResetPasswordError(message: e.toString()));
@@ -144,6 +145,7 @@ class AuthCubit extends Cubit<AuthState> {
       emit(ResetPasswordError(message: e.toString()));
     }
   }
+
   // Future<void> checkAuth() async {
   //   final user = supabase.auth.currentUser;
   //   if (user != null) {
@@ -152,4 +154,40 @@ class AuthCubit extends Cubit<AuthState> {
   //     emit(AuthInitial());
   //   }
   // }
+  Future<void> resetPasswordWithOTP({
+    required String email,
+    required String resetToken,
+    required String newPassword,
+  }) async {
+    emit(ResetPasswordLoading());
+
+    try {
+      // Verify the OTP (token) to confirm the reset process
+      final recovery = await supabase.auth.verifyOTP(
+        email: email,
+        token: resetToken,
+        type: OtpType.recovery, // Type: recovery
+      );
+
+      print("OTP verification result: $recovery");
+
+      // Update the password for the user
+      await supabase.auth.updateUser(
+        UserAttributes(password: newPassword),
+      );
+
+      emit(ResetPasswordSuccess());
+    } on AuthException catch (e) {
+      emit(ResetPasswordError(message: e.message));
+    } catch (e) {
+      emit(ResetPasswordError(message: e.toString()));
+    }
+  }
+
+  Future<void> saveOTP(String otp) async {
+    await CacheData.setData(key: AppCacheData.otpKey, value: otp);
+    await CacheData.setData(
+        key: AppCacheData.otpCreatedAtKey,
+        value: DateTime.now().millisecondsSinceEpoch);
+  }
 }
