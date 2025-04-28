@@ -38,7 +38,7 @@ class DiagnosisRepositoryImpl implements DiagnosisRepository {
       });
 
       final response = await dio.post(
-        'http://13.60.181.17:8000/analyze/',
+        'http://13.60.204.213:8000/analyze/',
         data: formData,
         options: Options(contentType: 'multipart/form-data'),
       );

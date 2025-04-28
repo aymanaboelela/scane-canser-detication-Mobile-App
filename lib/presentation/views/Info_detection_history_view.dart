@@ -1,11 +1,7 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:scan_canser_detection/core/constants/app_assets.dart';
-import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
 import 'package:scan_canser_detection/data/models/detication_model.dart';
-import 'package:scan_canser_detection/presentation/widgets/generate_and_save_pdf.dart';
 import 'package:scan_canser_detection/controllers/call/call_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,12 +49,11 @@ class InfoDetectionHistoryView extends StatelessWidget {
                     }
                   },
                   errorBuilder: (context, error, stackTrace) =>
-                      Icon(Icons.broken_image), // في حالة وجود خطأ في التحميل
+                      Icon(Icons.broken_image),
                 ),
               ),
               SizedBox(height: 20.h),
 
-              // 🧬 اسم السرطان
               Text(
                 detectionModel.name,
                 style: context.textTheme.headlineSmall!.copyWith(
@@ -68,7 +63,6 @@ class InfoDetectionHistoryView extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              // ⚠️ درجة الخطورة
               Text(
                 detectionModel.malignancyStatus ?? 'N/A',
                 style: context.textTheme.bodyLarge!.copyWith(
@@ -79,7 +73,7 @@ class InfoDetectionHistoryView extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              // 📊 نسبة التأكد
+           
               Text(
                 "Confidence Level: ${detectionModel.probability}",
                 style: context.textTheme.bodyLarge!.copyWith(
@@ -89,7 +83,6 @@ class InfoDetectionHistoryView extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
 
-              // 📝 الإجراء المطلوب
               Text(
                 detectionModel.description,
                 textAlign: TextAlign.justify,
