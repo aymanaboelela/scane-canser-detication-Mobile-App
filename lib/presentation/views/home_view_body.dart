@@ -52,7 +52,7 @@ class HomeViewBody extends StatelessWidget {
                           SizedBox(
                             width: 295.w,
                             child: Text(
-                              "You can find the difference types of scin canser here .",
+                              "You can find the difference types of skin cancer here .",
                               style: context.textTheme.bodyLarge
                                   ?.copyWith(color: Colors.black),
                             ),
@@ -135,8 +135,9 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: 12),
             FadeInUp(
               child: InkWell(
-                onTap: () => GoRouter.of(context)
-                    .push(AppRouter.kUserManualView,),
+                onTap: () => GoRouter.of(context).push(
+                  AppRouter.kUserManualView,
+                ),
                 child: CustomContainerTips(
                     title:
                         "Please read this manual\ncarefully to prevent any\npossible misunderstanding",

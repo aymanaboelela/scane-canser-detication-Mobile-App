@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scan_canser_detection/core/constants/app_assets.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/constants/constans.dart';
@@ -42,49 +43,42 @@ class TypesOfSkinCancerView extends StatelessWidget {
                 ),
                 CustomTypesOfSkinCancerItem(
                   title:
-                      "2-Squamous Cell Carcinoma (SCC):The second most common type, often appearing as scaly patches, open sores, or red, firm bumps.",
-                  image1: AppAssets.detection4,
-                  image2: AppAssets.detection5,
-                  image3: AppAssets.detection7,
-                ),
-                CustomTypesOfSkinCancerItem(
-                  title:
-                      "3-Melanoma:The most dangerous type of skin cancer. It may develop in existing moles or as new dark, irregular spots.",
+                      "2-Melanoma:The most dangerous type of skin cancer. It may develop in existing moles or as new dark, irregular spots.",
                   image1: AppAssets.detection8,
                   image2: AppAssets.detection9,
                   image3: AppAssets.detection10,
                 ),
                 CustomTypesOfSkinCancerItem(
                   title:
-                      "4-Melanocytic Nevus:Commonly known as moles, these are usually benign skin growths caused by clusters of pigmented cells. While most are harmless, changes in size, shape, or color may require medical attention to rule out melanoma.",
+                      "3-Melanocytic Nevus:Commonly known as moles, these are usually benign skin growths caused by clusters of pigmented cells. While most are harmless, changes in size, shape, or color may require medical attention to rule out melanoma.",
                   image1: AppAssets.detection11,
                   image2: AppAssets.detection12,
                   image3: AppAssets.detection14,
                 ),
                 CustomTypesOfSkinCancerItem(
                   title:
-                      "5-Vascular Lesion:Abnormalities of blood vessels that appear as red, purple, or blue marks on the skin. These lesions are usually benign but may require treatment for cosmetic reasons or if they cause symptoms.",
+                      "4-Vascular Lesion:Abnormalities of blood vessels that appear as red, purple, or blue marks on the skin. These lesions are usually benign but may require treatment for cosmetic reasons or if they cause symptoms.",
                   image1: AppAssets.detection15,
                   image2: AppAssets.detection16,
                   image3: AppAssets.detection17,
                 ),
                 CustomTypesOfSkinCancerItem(
                   title:
-                      "6-Actinic Keratosis:A precancerous condition caused by sun damage, appearing as rough, scaly patches on exposed skin.",
+                      "5-Actinic Keratosis:A precancerous condition caused by sun damage, appearing as rough, scaly patches on exposed skin.",
                   image1: AppAssets.detection18,
                   image2: AppAssets.detection19,
                   image3: AppAssets.detection20,
                 ),
                 CustomTypesOfSkinCancerItem(
                   title:
-                      "7-Dermatofibroma:A benign, firm, small skin nodule that often appears on the lower legs. It is usually painless but may feel tender when pressed. Dermatofibromas are non-cancerous and generally harmless.",
+                      "6-Dermatofibroma:A benign, firm, small skin nodule that often appears on the lower legs. It is usually painless but may feel tender when pressed. Dermatofibromas are non-cancerous and generally harmless.",
                   image1: AppAssets.detection21,
                   image2: AppAssets.detection22,
                   image3: AppAssets.detection23,
                 ),
                 CustomTypesOfSkinCancerItem(
                   title:
-                      "8-Benign Keratosis:A non-cancerous growth that often appears as rough, raised, or warty spots on the skin. These growths are harmless and common in older adults, typically caused by sun exposure or aging.",
+                      "7-Benign Keratosis:A non-cancerous growth that often appears as rough, raised, or warty spots on the skin. These growths are harmless and common in older adults, typically caused by sun exposure or aging.",
                   image1: AppAssets.detection24,
                   image2: AppAssets.detection25,
                   image3: AppAssets.detection16,
@@ -127,31 +121,31 @@ class CustomTypesOfSkinCancerItem extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontFamily: font,
             ),
           ),
           SizedBox(
-            height: 12,
+            height: 12.h,
           ),
           Row(
             children: [
               Image.asset(
                 image1,
-                height: 85,
-                width: 100,
+                height: 85.h,
+                width: 100.w,
               ),
               Spacer(),
               Image.asset(
                 image2,
-                height: 85,
-                width: 100,
+                height: 85.h,
+                width: 100.w,
               ),
               Spacer(),
               Image.asset(
                 image3,
-                height: 85,
-                width: 100,
+                height: 85.h,
+                width: 100.w,
               ),
             ],
           )

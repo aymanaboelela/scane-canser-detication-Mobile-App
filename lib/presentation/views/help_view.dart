@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scan_canser_detection/core/constants/app_assets.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
+import 'package:scan_canser_detection/presentation/widgets/callBottom.dart';
 import 'package:scan_canser_detection/presentation/widgets/custom_container_tips.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HelpView extends StatelessWidget {
   const HelpView({super.key});
@@ -72,23 +74,51 @@ class HelpView extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Ambulance:',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    Row(
+                      children: [
+                        Text(
+                          'Ambulance:',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                        SizedBox(width: 10.w),
+                        CallButton(
+                          phoneNumber: '123',
+                        ),
+                      ],
                     ),
-                    Text('• 123\n'),
-                    Text(
-                      'Medical Emergency Hotline:',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    Row(
+                      children: [
+                        Text('• 123\n'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Medical Emergency Hotline:',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                        SizedBox(width: 10.w),
+                        CallButton(
+                          phoneNumber: '137',
+                        ),
+                      ],
                     ),
                     Text(
                         '• 137 (For urgent medical consultations and hospital referrals).\n'),
-                    Text(
-                      'Skin Cancer Support:',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    Row(
+                      children: [
+                        Text(
+                          'Skin Cancer Support:',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                        SizedBox(width: 10.w),
+                        CallButton(
+                          phoneNumber: '0223651235',
+                        ),
+                      ],
                     ),
                     Text(
                         '• Call the Egyptian National Cancer Institute at 02 2365 1235 for guidance and support.'),

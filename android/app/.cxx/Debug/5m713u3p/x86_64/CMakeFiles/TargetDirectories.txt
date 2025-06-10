@@ -1,0 +1,2 @@
+D:/skin-cancer-detection-Derma-Check-App/android/app/.cxx/Debug/5m713u3p/x86_64/CMakeFiles/edit_cache.dir
+D:/skin-cancer-detection-Derma-Check-App/android/app/.cxx/Debug/5m713u3p/x86_64/CMakeFiles/rebuild_cache.dir

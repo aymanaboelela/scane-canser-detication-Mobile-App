@@ -5,13 +5,27 @@ import 'package:scan_canser_detection/data/models/detication_model.dart';
 import 'package:scan_canser_detection/controllers/call/call_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class InfoDetectionHistoryView extends StatelessWidget {
+class InfoDetectionHistoryView extends StatefulWidget {
   final DetectionModel detectionModel;
 
   const InfoDetectionHistoryView({
     super.key,
     required this.detectionModel,
   });
+
+  @override
+  State<InfoDetectionHistoryView> createState() =>
+      _InfoDetectionHistoryViewState();
+}
+
+class _InfoDetectionHistoryViewState extends State<InfoDetectionHistoryView> {
+  double? confidence;
+  @override
+  void initState() {
+    confidence = double.tryParse(
+        widget.detectionModel.probability.replaceAll('%', '') ?? '');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +43,7 @@ class InfoDetectionHistoryView extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.r),
                 child: Image.network(
-                  detectionModel.imagePath ?? '',
+                  widget.detectionModel.imagePath ?? '',
                   width: double.infinity,
                   height: 250.h,
                   fit: BoxFit.cover,
@@ -53,87 +67,109 @@ class InfoDetectionHistoryView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
+              confidence != null && confidence! < 90
+                  ? Column(
+                      children: [
+                        Text(
+                          "Low Confidence Level",
+                          style: context.textTheme.headlineSmall!.copyWith(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          "The image is unclear or does not indicate cancer. Please try again with a clearer image.",
+                          style: context.textTheme.bodyLarge!.copyWith(
+                            color: Colors.grey[800],
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Text(
+                          widget.detectionModel.name,
+                          style: context.textTheme.headlineSmall!.copyWith(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
 
-              Text(
-                detectionModel.name,
-                style: context.textTheme.headlineSmall!.copyWith(
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 8.h),
+                        Text(
+                          widget.detectionModel.malignancyStatus ?? 'N/A',
+                          style: context.textTheme.bodyLarge!.copyWith(
+                            color: Colors.deepOrange,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 8.h),
 
-              Text(
-                detectionModel.malignancyStatus ?? 'N/A',
-                style: context.textTheme.bodyLarge!.copyWith(
-                  color: Colors.deepOrange,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(height: 8.h),
+                        Text(
+                          "Confidence Level: ${widget.detectionModel.probability}",
+                          style: context.textTheme.bodyLarge!.copyWith(
+                            color: Colors.black87,
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
 
-           
-              Text(
-                "Confidence Level: ${detectionModel.probability}",
-                style: context.textTheme.bodyLarge!.copyWith(
-                  color: Colors.black87,
-                  fontSize: 16.sp,
-                ),
-              ),
-              SizedBox(height: 16.h),
+                        Text(
+                          widget.detectionModel.description,
+                          textAlign: TextAlign.justify,
+                          style: context.textTheme.bodyMedium!.copyWith(
+                            fontSize: 14.sp,
+                            color: Colors.grey[800],
+                          ),
+                        ),
+                        SizedBox(height: 30.h),
 
-              Text(
-                detectionModel.description,
-                textAlign: TextAlign.justify,
-                style: context.textTheme.bodyMedium!.copyWith(
-                  fontSize: 14.sp,
-                  color: Colors.grey[800],
-                ),
-              ),
-              SizedBox(height: 30.h),
-
-              // أزرار PDF و WhatsApp
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // ElevatedButton.icon(
-                  //   onPressed: () async {
-                  //     await generateAndSavePDF(
-                  //       cancerName: detectionModel.name,
-                  //       probability: double.tryParse(
-                  //               detectionModel.probability.replaceAll('%', '')) ??
-                  //           0.0,
-                  //       description: detectionModel.description,
-                  //       imagePath: detectionModel.imagePath ?? '',
-                  //     );
-                  //     ScaffoldMessenger.of(context).showSnackBar(
-                  //       const SnackBar(content: Text("تم حفظ الملف PDF بنجاح")),
-                  //     );
-                  //   },
-                  //   icon: const Icon(Icons.picture_as_pdf),
-                  //   label: const Text("Download PDF"),
-               //   ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      context.read<CallCubit>().whatsApp(
-                        phoneNumber: "01225796476",
-                        massege:
-                            "Hello, I have a detection result:\n\n"
-                            "Cancer Type: ${detectionModel.name}\n"
-                            "Malignancy: ${detectionModel.malignancyStatus}\n"
-                            "Confidence Level: ${detectionModel.probability}\n"
-                            "Action: ${detectionModel.description}",
-                      );
-                    },
-                    icon: const Icon(Icons.share),
-                    label: const Text("Send to Doctor"),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
+                        // أزرار PDF و WhatsApp
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            // ElevatedButton.icon(
+                            //   onPressed: () async {
+                            //     await generateAndSavePDF(
+                            //       cancerName: detectionModel.name,
+                            //       probability: double.tryParse(
+                            //               detectionModel.probability.replaceAll('%', '')) ??
+                            //           0.0,
+                            //       description: detectionModel.description,
+                            //       imagePath: detectionModel.imagePath ?? '',
+                            //     );
+                            //     ScaffoldMessenger.of(context).showSnackBar(
+                            //       const SnackBar(content: Text("تم حفظ الملف PDF بنجاح")),
+                            //     );
+                            //   },
+                            //   icon: const Icon(Icons.picture_as_pdf),
+                            //   label: const Text("Download PDF"),
+                            //   ),
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                context.read<CallCubit>().whatsApp(
+                                      phoneNumber: "01225796476",
+                                      massege:
+                                          "Hello, I have a detection result:\n\n"
+                                          "Cancer Type: ${widget.detectionModel.name}\n"
+                                          "Malignancy: ${widget.detectionModel.malignancyStatus}\n"
+                                          "Confidence Level: ${widget.detectionModel.probability}\n"
+                                          "Action: ${widget.detectionModel.description}",
+                                    );
+                              },
+                              icon: const Icon(Icons.share),
+                              label: const Text("Send to Doctor"),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/constants/constans.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
@@ -73,21 +74,9 @@ class EarlyDetectionView extends StatelessWidget {
                         '• Rarely spreads but can cause significant local damage if untreated.',
                         style: TextStyle(color: AppColors.white),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 15.h),
                       Text(
-                        '2. Squamous Cell Carcinoma (SCC):',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      Text(
-                        '• The second most common type.\n'
-                        '• Typically appears as a scaly patch, wart-like growth, or sore that bleeds or crusts.\n'
-                        '• Can spread if not treated promptly.',
-                        style: TextStyle(color: AppColors.white),
-                      ),
-                      SizedBox(height: 20),
-                      Text(
-                        '3. Melanoma:',
+                        '2. Melanoma:',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -101,9 +90,7 @@ class EarlyDetectionView extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 12,
-              ),
+              SizedBox(height: 20.h),
               Center(
                 child: Text(
                   'Recognizing Warning Signs',
@@ -131,9 +118,7 @@ class EarlyDetectionView extends StatelessWidget {
                       fontFamily: font),
                 ),
               ),
-              SizedBox(
-                height: 12,
-              ),
+              SizedBox(height: 20.h),
               Text(
                 'Skin cancer occurs when skin cells grow uncontrollably due to DNA damage, often caused by ultraviolet (UV) radiation from the sun or tanning beds. There are three main types of skin cancer:',
                 style: TextStyle(
@@ -209,7 +194,11 @@ class EarlyDetectionView extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 12,
+                height: 15.h,
+              ),
+              Image.asset("assets/images/Capture.PNG"),
+              SizedBox(
+                height: 12.h,
               ),
               Text(
                   "Other warning signs include sores that don’t heal, growths that increase in size, or areas of skin that itch, bleed, or become crusty. These signs are not limited to melanoma but can apply to other types of skin cancer, such as basal cell carcinoma and squamous cell carcinoma. It's important to stay vigilant and consult a healthcare professional if you notice any unusual changes in your skin."),
@@ -245,7 +234,7 @@ class EarlyDetectionView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '1. Use Sunscreen:',
+                        '1.☀ Use Sunscreen:',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -255,7 +244,7 @@ class EarlyDetectionView extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        '2. Avoid Tanning Beds:',
+                        '2.🛏 Avoid Tanning Beds:',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -265,7 +254,7 @@ class EarlyDetectionView extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        '3. Wear Protective Clothing:',
+                        '3.👕 Wear Protective Clothing :',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -275,7 +264,7 @@ class EarlyDetectionView extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        '4. Stay in the Shade:',
+                        '4.🌲 Stay in the Shade:',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -285,7 +274,7 @@ class EarlyDetectionView extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        '5. Perform Regular Skin Checks:',
+                        '5.🔎 Perform Regular Skin Checks:',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
@@ -316,7 +305,7 @@ class EarlyDetectionView extends StatelessWidget {
                 height: 20,
               )
             ],
-          ).withSymmetricPadding(horizontal: 16),
+          ).withSymmetricPadding(horizontal: 16.h),
         ),
       ),
     );
