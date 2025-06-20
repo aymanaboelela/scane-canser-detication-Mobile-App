@@ -7,7 +7,7 @@
   [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
   [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
   [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-  [![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org)
+  [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
 </div>
 
 ## 📋 Table of Contents
@@ -115,6 +115,9 @@ This graduation project was developed at the Modern University for Technology & 
 | MobileNetV3 | 88.6% | 73.3% |
 | **Ensemble** | **96.1%** | **81.2%** |
 
+### 🔬 Training Details
+For comprehensive information about model training procedures, hyperparameter tuning, and implementation details, please visit our [Intelligent Skin Cancer Detection Models repository](https://github.com/esraamhmd/Intelligent-Skin-Cancer-Image-based-Detection-models/tree/main).
+
 ## 📖 Usage
 
 ### Getting Started
@@ -188,6 +191,7 @@ Input Image → Preprocessing → Feature Extraction → ML Classifier → Resul
 <div align="center">
   <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/mlframework.png" width="900" alt="Machine learning framework"/>
   </div>
+  
 
 ## 📱 Screenshots
 
