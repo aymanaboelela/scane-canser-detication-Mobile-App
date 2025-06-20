@@ -145,14 +145,14 @@ This graduation project was developed at the Modern University for Technology & 
 - **Classes**: 7 skin lesion types
 - **Source**: ViDIR Group, Medical University of Vienna
 - **Regions**: Austria and Australia
-- **Link**: https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
+- **Dataset Link**: [HAM10000 on Kaggle](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000)
 
 ### ISIC Archive Dataset
 - **Total Images**: 28,000 high-quality dermoscopic images
 - **Classes**: 7 balanced classes (4,000 images each)
 - **Source**: International Skin Imaging Collaboration
 - **Usage**: ISIC Challenge benchmark dataset
-- **Link**: https://www.kaggle.com/datasets/shadmansobhan/isic-2019-balanced-dataset-4000-images-per-class
+- **Dataset Link**: [ISIC 2019 Balanced Dataset on Kaggle](https://www.kaggle.com/datasets/shadmansobhan/isic-2019-balanced-dataset-4000-images-per-class)
 
 ## 🏗️ Model Architecture
 
