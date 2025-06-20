@@ -11,17 +11,16 @@
 </div>
 
 ## 📋 Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Model Performance](#model-performance)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Dataset](#dataset)
-- [Model Architecture](#model-architecture)
-- [Screenshots](#screenshots)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- Overview
+- Features
+- Technology Stack
+- Model Performance
+- Usage
+- Dataset
+- Model Architecture
+- Screenshots
+- License
+- Acknowledgments
 
 ## 🔍 Overview
 
@@ -173,6 +172,10 @@ Feature Fusion & Ensemble Voting
 Final Classification Result
 ```
 
+<div align="center">
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/dlframework.png" width="900" alt="Deep learning framework"/>
+  </div>
+
 ### Machine Learning Pipeline
 ```
 Input Image → Preprocessing → Feature Extraction → ML Classifier → Result
@@ -182,27 +185,36 @@ Input Image → Preprocessing → Feature Extraction → ML Classifier → Resul
             Resizing        Features
 ```
 
+<div align="center">
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/mlframework.png" width="900" alt="Machine learning framework"/>
+  </div>
+
 ## 📱 Screenshots
 
-### Onboarding & Authentication
+### Onboarding
+
 <div align="center">
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/onboarding.png" width="200" alt="Onboarding"/>
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/login.png" width="200" alt="Login"/>
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/signup.png" width="200" alt="Sign Up"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/onboarding.png" width="600" alt="Onboarding"/>
+  </div>
+  
+### Authentication
+<div align="center">
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/login.png" width="242" alt="Login"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/signup.png" width="250" alt="Sign Up"/>
 </div>
 
 ### Main Interface
 <div align="center">
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/home.png" width="200" alt="Home Screen"/>
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/camera.png" width="200" alt="Camera"/>
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/results.png" width="200" alt="Results"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/home.png" width="430" alt="Home Screen"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/camera.png" width="217" alt="Camera"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/results.png" width="212" alt="Results"/>
 </div>
 
 ### Additional Features
 <div align="center">
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/history.png" width="200" alt="History"/>
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/help.png" width="200" alt="Help"/>
-  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/settings.png" width="200" alt="Settings"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/history.png" width="400" alt="History"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/help.png" width="400" alt="Help"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/settings.png" width="400" alt="Settings"/>
 </div>
 
 
