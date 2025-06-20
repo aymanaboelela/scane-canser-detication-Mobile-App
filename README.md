@@ -2,7 +2,7 @@
 ## Intelligent Skin Cancer Image-based Detection System
 
 <div align="center">
-  <img src="" alt="Derma Check Logo" width="200"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/logoApp.jpg" alt="Derma Check Logo" width="200"/>
   
   [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
   [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
@@ -186,32 +186,23 @@ Input Image → Preprocessing → Feature Extraction → ML Classifier → Resul
 
 ### Onboarding & Authentication
 <div align="center">
-  <img src="![image](https://github.com/user-attachments/assets/faf5c354-23bf-434c-aa5a-8886e7e2545e)
-" width="200" alt="Onboarding"/>
-  <img src="![image](https://github.com/user-attachments/assets/06247cae-4ce5-44ee-b89b-0fb4089cbb77)
-" width="200" alt="Login"/>
-  <img src="![image](https://github.com/user-attachments/assets/0d1d8245-f390-4402-8fb0-c44732e1870d)
-" width="200" alt="Sign Up"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/onboarding.png" width="200" alt="Onboarding"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/login.png" width="200" alt="Login"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/signup.png" width="200" alt="Sign Up"/>
 </div>
 
 ### Main Interface
 <div align="center">
-  <img src="![image](https://github.com/user-attachments/assets/d33c947f-3dbf-4fa5-b235-50ea6821f96d)
-" width="200" alt="Home Screen"/>
-  <img src="![image](https://github.com/user-attachments/assets/3e6b7e43-2a25-495c-9e97-5ee4e955f9c9)
-" width="200" alt="Camera"/>
-  <img src="![image](https://github.com/user-attachments/assets/8e507662-caa3-4782-aaf5-c6ec1930f8a9)
-" width="200" alt="Results"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/home.png" width="200" alt="Home Screen"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/camera.png" width="200" alt="Camera"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/results.png" width="200" alt="Results"/>
 </div>
 
 ### Additional Features
 <div align="center">
-  <img src="![image](https://github.com/user-attachments/assets/61c54e60-78a5-43fd-b489-dadf8b325e2c)
-" width="200" alt="History"/>
-  <img src="![image](https://github.com/user-attachments/assets/72c8aa04-8238-41c4-9e61-5901f225d20e)
-" width="200" alt="Help"/>
-  <img src="![image](https://github.com/user-attachments/assets/d4b992d4-7315-4f0b-9eca-8dee6e4b196c)
-" width="200" alt="Settings"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/history.png" width="200" alt="History"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/help.png" width="200" alt="Help"/>
+  <img src="https://github.com/aymanaboelela/skin-cancer-detection-Derma-Check-App/blob/main/assets/images/settings.png" width="200" alt="Settings"/>
 </div>
 
 
@@ -225,7 +216,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **HAM10000 Dataset** contributors from Medical University of Vienna
 - **Flutter Team** for the excellent cross-platform framework
 - **Supabase** for the robust backend infrastructure
-- **TensorFlow/PyTorch** communities for the deep learning tools
+- **PyTorch** communities for the deep learning tools
 
 
 ## 🔮 Future Work
@@ -236,7 +227,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Transformer-based models (Vision Transformers)
 - [ ] Support for additional cancer types
 - [ ] Longitudinal patient tracking
-- [ ] Enhanced security measures
 
 ---
 
