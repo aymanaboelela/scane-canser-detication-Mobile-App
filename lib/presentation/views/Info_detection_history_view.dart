@@ -23,12 +23,12 @@ class _InfoDetectionHistoryViewState extends State<InfoDetectionHistoryView> {
   @override
   void initState() {
     confidence = double.tryParse(
-        widget.detectionModel.probability.replaceAll('%', '') ?? '');
+        widget.detectionModel.probability.replaceAll('%', '') );
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext   ) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detection Result"),
@@ -148,24 +148,40 @@ class _InfoDetectionHistoryViewState extends State<InfoDetectionHistoryView> {
                             //   icon: const Icon(Icons.picture_as_pdf),
                             //   label: const Text("Download PDF"),
                             //   ),
-                            ElevatedButton.icon(
-                              onPressed: () {
-                                context.read<CallCubit>().whatsApp(
-                                      phoneNumber: "01225796476",
-                                      massege:
-                                          "Hello, I have a detection result:\n\n"
-                                          "Cancer Type: ${widget.detectionModel.name}\n"
-                                          "Malignancy: ${widget.detectionModel.malignancyStatus}\n"
-                                          "Confidence Level: ${widget.detectionModel.probability}\n"
-                                          "Action: ${widget.detectionModel.description}",
-                                    );
-                              },
-                              icon: const Icon(Icons.share),
-                              label: const Text("Send to Doctor"),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green,
-                              ),
-                            ),
+
+                            Row(
+                              children: [
+                                ElevatedButton.icon(
+                                  onPressed: () {
+                                    context.read<CallCubit>().whatsApp(
+                                          phoneNumber: "01225796476",
+                                          massege:
+                                              "Hello, I have a detection result:\n\n"
+                                              "Cancer Type: ${widget.detectionModel.name}\n"
+                                              "Malignancy: ${widget.detectionModel.malignancyStatus}\n"
+                                              "Confidence Level: ${widget.detectionModel.probability}\n"
+                                              "Action: ${widget.detectionModel.description}",
+                                        );
+                                  },
+                                  icon: const Icon(Icons.share),
+                                  label: const Text("Send to Doctor"),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 12.w,
+                                ),
+                                ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.person_2_outlined),
+                                  label: const Text("Recommend Doctor"),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       ],
