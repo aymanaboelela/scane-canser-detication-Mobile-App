@@ -6,6 +6,8 @@ import 'package:scan_canser_detection/core/constants/app_cach_data.dart';
 import 'package:scan_canser_detection/core/constants/constans.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
 import 'package:scan_canser_detection/core/helper/cach_data.dart';
+import 'package:scan_canser_detection/core/localization/app_localizations.dart';
+import 'package:scan_canser_detection/core/localization/language/language_cubit.dart';
 import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 
 import '../../core/widgets/responsive_padding.dart';
@@ -24,6 +26,44 @@ class _SettingsViewState extends State<SettingsView> {
   bool _dataSharing = true;
   String _name = CacheData.getData(key: AppCacheData.userName);
   String _email = CacheData.getData(key: AppCacheData.email);
+
+  void _showLanguageSelectionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context).translate('select_language')),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: const Text('العربية'),
+              onTap: () {
+                context
+                    .read<LanguageCubit>()
+                    .changeLanguage(const Locale('ar'));
+                Navigator.pop(context);
+              },
+              trailing: context.read<LanguageCubit>().state.languageCode == 'ar'
+                  ? const Icon(Icons.check, color: Colors.deepOrange)
+                  : null,
+            ),
+            ListTile(
+              title: const Text('English'),
+              onTap: () {
+                context
+                    .read<LanguageCubit>()
+                    .changeLanguage(const Locale('en'));
+                Navigator.pop(context);
+              },
+              trailing: context.read<LanguageCubit>().state.languageCode == 'en'
+                  ? const Icon(Icons.check, color: Colors.deepOrange)
+                  : null,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   void _showEditProfileSheet() {
     final nameController = TextEditingController(text: _name);
@@ -45,17 +85,17 @@ class _SettingsViewState extends State<SettingsView> {
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(
-                labelText: 'Name',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context).translate('name'),
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context).translate('email'),
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 20),
@@ -67,7 +107,8 @@ class _SettingsViewState extends State<SettingsView> {
                 });
                 Navigator.pop(context);
               },
-              child: const Text('Save Changes'),
+              child:
+                  Text(AppLocalizations.of(context).translate('save_changes')),
             ),
             const SizedBox(height: 16),
           ],
@@ -80,12 +121,13 @@ class _SettingsViewState extends State<SettingsView> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Log Out'),
-        content: const Text('Are you sure you want to log out?'),
+        title: Text(AppLocalizations.of(context).translate('logout')),
+        content:
+            Text(AppLocalizations.of(context).translate('logout_confirmation')),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).translate('cancel')),
           ),
           TextButton(
             onPressed: () {
@@ -94,7 +136,7 @@ class _SettingsViewState extends State<SettingsView> {
               // CacheData.clearData(clearData: true);
               GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
             },
-            child: const Text('Log Out'),
+            child: Text(AppLocalizations.of(context).translate('logout')),
           ),
         ],
       ),
@@ -103,9 +145,12 @@ class _SettingsViewState extends State<SettingsView> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LanguageCubit>().state;
+    final isArabic = locale.languageCode == 'ar';
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(AppLocalizations.of(context).translate('settings')),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -121,16 +166,20 @@ class _SettingsViewState extends State<SettingsView> {
               ),
               SectionCard(
                 children: [
-                  const SectionTitle(title: "Notifications"),
+                  SectionTitle(
+                      title: AppLocalizations.of(context)
+                          .translate('notifications')),
                   SettingsSwitch(
-                    title: "Push Notifications",
+                    title: AppLocalizations.of(context)
+                        .translate('push_notifications'),
                     icon: Icons.notifications,
                     value: _pushNotifications,
                     onChanged: (value) =>
                         setState(() => _pushNotifications = value),
                   ),
                   SettingsSwitch(
-                    title: "Email Notifications",
+                    title: AppLocalizations.of(context)
+                        .translate('email_notifications'),
                     icon: Icons.email,
                     value: _emailNotifications,
                     onChanged: (value) =>
@@ -140,40 +189,39 @@ class _SettingsViewState extends State<SettingsView> {
               ),
               SectionCard(
                 children: [
-                  const SectionTitle(title: "App Preferences"),
+                  SectionTitle(
+                      title: AppLocalizations.of(context)
+                          .translate('app_preferences')),
                   SettingsNavigationItem(
-                    title: "App Language",
+                    title:
+                        AppLocalizations.of(context).translate('app_language'),
                     icon: Icons.language,
-                    value: "English",
+                    value: context.read<LanguageCubit>().languageName,
                     onTap: () {
-                      // Add language selection logic
+                      _showLanguageSelectionDialog(context);
                     },
                   ),
                 ],
               ),
               SectionCard(
                 children: [
-                  const SectionTitle(title: "Privacy & Security"),
+                  SectionTitle(
+                      title: AppLocalizations.of(context).translate('account')),
                   SettingsSwitch(
-                    title: "Data Sharing",
+                    title:
+                        AppLocalizations.of(context).translate('data_sharing'),
                     icon: Icons.security,
                     value: _dataSharing,
                     onChanged: (value) => setState(() => _dataSharing = value),
                   ),
                   SettingsNavigationItem(
-                    title: "Privacy Policy",
+                    title: AppLocalizations.of(context)
+                        .translate('privacy_policy'),
                     icon: Icons.privacy_tip,
                     onTap: () {
                       GoRouter.of(context).push(AppRouter.kPrivacyandpolicy);
                     },
                   ),
-                  // SettingsNavigationItem(
-                  //   title: "Teams Members",
-                  //   icon: Icons.description,
-                  //   onTap: () {
-                  //     GoRouter.of(context).push(AppRouter.kTeamsView);
-                  //   },
-                  // ),
                 ],
               ),
               LogoutButton(onPressed: _confirmLogout),
@@ -228,10 +276,6 @@ class ProfileSection extends StatelessWidget {
                 ],
               ),
             ),
-            // IconButton(
-            //   icon: const Icon(Icons.edit),
-            //   onPressed: onEditPressed,
-            // ),
           ],
         ),
       ),
@@ -260,10 +304,13 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LanguageCubit>().state;
+    final isArabic = locale.languageCode == 'ar';
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
       child: Align(
-        alignment: Alignment.centerLeft,
+        alignment: isArabic ? Alignment.centerRight : Alignment.centerLeft,
         child: Text(
           title,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -316,6 +363,9 @@ class SettingsNavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LanguageCubit>().state;
+    final isArabic = locale.languageCode == 'ar';
+
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
@@ -327,7 +377,7 @@ class SettingsNavigationItem extends StatelessWidget {
               value!,
               style: Theme.of(context).textTheme.bodySmall,
             ),
-          const Icon(Icons.chevron_right),
+          Icon(isArabic ? Icons.chevron_left : Icons.chevron_right),
         ],
       ),
       onTap: onTap,
@@ -351,7 +401,7 @@ class LogoutButton extends StatelessWidget {
             foregroundColor: context.theme.colorScheme.onError,
           ),
           onPressed: onPressed,
-          child: const Text("Log Out"),
+          child: Text(AppLocalizations.of(context).translate('logout')),
         ),
       ),
     );

@@ -5,6 +5,8 @@ import 'package:lottie/lottie.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:scan_canser_detection/controllers/detiction/detiction_cubit.dart';
 import 'package:scan_canser_detection/core/constants/app_assets.dart';
+import 'package:scan_canser_detection/core/localization/app_localizations.dart';
+import 'package:scan_canser_detection/core/localization/language/language_cubit.dart';
 import 'package:scan_canser_detection/data/models/detication_model.dart';
 import 'package:scan_canser_detection/data/servies/detication_rebo.dart';
 
@@ -45,7 +47,8 @@ class _HistoryViewState extends State<HistoryView> {
               },
               child: Scaffold(
                 appBar: AppBar(
-                  title: Text("History"),
+                  title:
+                      Text(AppLocalizations.of(context).translate('history')),
                   centerTitle: true,
                   backgroundColor: Colors.transparent,
                 ),
@@ -65,7 +68,14 @@ class _HistoryViewState extends State<HistoryView> {
                         }
 
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Deleted")),
+                          SnackBar(
+                              content: Text(context
+                                          .read<LanguageCubit>()
+                                          .state
+                                          .languageCode ==
+                                      'ar'
+                                  ? "تم الحذف"
+                                  : "Deleted")),
                         );
                       },
                       detectionModel: hestory[index],

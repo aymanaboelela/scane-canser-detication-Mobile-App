@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
+import 'package:scan_canser_detection/core/localization/language/language_cubit.dart';
 import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 import 'package:scan_canser_detection/data/models/detication_model.dart';
 
@@ -17,6 +19,9 @@ class HistoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LanguageCubit>().state;
+    final isArabic = locale.languageCode == 'ar';
+
     return Dismissible(
       key: Key(detectionModel.id ?? detectionModel.name),
       direction: DismissDirection.endToStart,
@@ -33,65 +38,82 @@ class HistoryItem extends StatelessWidget {
               .push(AppRouter.kInfoDitectionHistoryView, extra: detectionModel);
         },
         child: Container(
-          margin: EdgeInsets.all(8),
-          height: 110,
+          margin: const EdgeInsets.all(8),
+          height: 110.h,
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: AppColors.primaryColor),
           ),
           child: Row(
+            textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 5, left: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(detectionModel.name),
-                    SizedBox(height: 5.h),
-                    Text(
-                      detectionModel.probability,
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 12.sp,
+              /// ==== النصوص ====
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 6.h),
+                  child: Column(
+                    crossAxisAlignment: isArabic
+                        ? CrossAxisAlignment.end
+                        : CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        detectionModel.name,
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: isArabic ? TextAlign.right : TextAlign.left,
                       ),
-                    ),
-                    SizedBox(
-                      width: 160.w,
-                      child: Text(
+                      SizedBox(height: 5.h),
+                      Text(
+                        isArabic
+                            ? "مستوى الثقة: ${detectionModel.probability}"
+                            : "Confidence: ${detectionModel.probability}",
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: AppColors.primaryColor,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: isArabic ? TextAlign.right : TextAlign.left,
+                      ),
+                      SizedBox(height: 5.h),
+                      Text(
                         detectionModel.description,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: AppColors.primaryColor,
+                        ),
                         maxLines: 2,
-                        style: TextStyle(color: AppColors.primaryColor),
-                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: isArabic ? TextAlign.right : TextAlign.left,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: Image.network(
-                  detectionModel.imagePath ?? '',
-                  width: 170.w,
-                  fit: BoxFit.cover,
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) {
-                      return child; // تظهر الصورة عندما يتم تحميلها بالكامل
-                    } else {
-                      // دائرة تحميل أثناء تحميل الصورة
-                      return Center(
-                        child: CircularProgressIndicator(
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  (loadingProgress.expectedTotalBytes ?? 1)
-                              : null,
-                        ),
-                      );
-                    }
-                  },
-                  errorBuilder: (context, error, stackTrace) =>
-                      Icon(Icons.broken_image), // في حالة وجود خطأ في التحميل
+
+              /// ==== الصورة ====
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.r),
+                child: SizedBox(
+                  width: 100.w,
+                  height: double.infinity,
+                  child: Image.network(
+                    detectionModel.imagePath ?? '',
+                    fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Icons.broken_image),
+                  ),
                 ),
               ),
             ],

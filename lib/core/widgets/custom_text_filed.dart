@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scan_canser_detection/core/constants/colors.dart';
 import 'package:scan_canser_detection/core/extentions/extentions.dart';
+import 'package:scan_canser_detection/core/localization/app_localizations.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -91,7 +92,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       validator: widget.validator ??
           (value) {
             if (value?.isEmpty ?? true) {
-              return "please enter ${widget.label}";
+              return "${AppLocalizations.of(context).translate('please_enter')} ${widget.label}";
             } else {
               return null;
             }
@@ -122,7 +123,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             : widget.suffixIcon,
         filled: true,
         fillColor: widget.fillColor ?? Colors.white,
-        hintText: widget.hintText ?? 'كلمة المرور',
+        hintText: widget.hintText ?? '',
         hintStyle: const TextStyle(color: Colors.grey),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(

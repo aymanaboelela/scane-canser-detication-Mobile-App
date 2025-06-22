@@ -1,0 +1,165 @@
+{
+  "app_name": "Derma Check",
+  "app_description": "Early Skin Cancer Detection",
+  
+  "user_manual": "User Manual",
+  "application_purpose": "Application Purpose",
+  "app_purpose_description": "This application is used for skin cancer diagnosis. It identifies the seven different types of skin cancer. The application is NOT 100% accurate, so it is recommended to consult a doctor for confirmation",
+  "how_to_capture": "How to Capture or Upload Images",
+  "ensure_lighting": "1. Ensure good lighting when capturing the image.",
+  "avoid_blurry": "2. Avoid blurry or unclear images.",
+  "center_affected_area": "3. Make sure the affected skin area is centered and clearly visible in the photo.",
+  "tips_best_results": "Tips for Best Results",
+  "remove_creams": "1. Remove any creams or makeup from the skin before taking the photo.",
+  "steady_camera": "2. Ensure the camera is steady while capturing the image.",
+    "login": "Log in",
+  "sign_up": "Sign up",
+  "dont_have_account": "Don't have an account?",
+  "deleted": "Deleted",
+  
+  "create_account": "Create Account",
+  "email_verification": "Email Verification",
+  "verification_sent": "A verification email has been sent to your email address. Please check your inbox and verify your email before logging in.",
+  "ok": "OK",
+  "enter_name": "Enter your name",
+  "enter_email": "Enter your email",
+  "enter_password": "Enter your password",
+  "please_enter_password": "Please enter your password",
+  "password_min_length": "Password must be at least 8 characters",
+  "already_have_account": "Already have an account?",
+  
+  "home": "Home",
+  "detection": "Detection",
+  "history": "History",
+  "help": "Help",
+  "settings": "Settings",
+  
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "take_photo": "Take Photo",
+  "select_photo": "Select Photo",
+  "crop_image": "Crop Image",
+  "cancel": "Cancel",
+  "done": "Done",
+  
+  "notifications": "Notifications",
+  "push_notifications": "Push Notifications",
+  "email_notifications": "Email Notifications",
+  
+  "app_preferences": "App Preferences",
+  "app_language": "App Language",
+  "dark_mode": "Dark Mode",
+  "data_sharing": "Data Sharing",
+  
+  "account": "Account",
+  "edit_profile": "Edit Profile",
+  "privacy_policy": "Privacy Policy",
+  "privacy_and_security": "Privacy & Security",
+  "about": "About",
+  "help_support": "Help & Support",
+  "logout": "Logout",
+  
+  "profile": "Profile",
+  "name": "Name",
+  "email": "Email",
+  "save_changes": "Save Changes",
+  
+  "logout_confirmation": "Are you sure you want to log out?",
+  "yes": "Yes",
+  "no": "No",
+
+  "detection_result": "Detection Result",
+  "low_confidence_level": "Low Confidence Level",
+  "unclear_image_message": "The image is unclear or does not indicate cancer. Please try again with a clearer image.",
+  "confidence_level": "Confidence Level",
+  "send_to_doctor": "Send to Doctor",
+  "recommend_doctor": "Recommend",
+  
+  "personal_ai_dermatologist": "Your Personal AI\nDermatologist",
+  "early_detection": "Early Detection Makes a Difference",
+  "our_test_can_help": "Our test can help you\ndetect skin cancer",
+  "early_detection_description": "Detecting skin cancer early significantly\nincreases your chances of successful treatment.\nMost moles and brown spots on your skin\nare harmless – but not always.",
+  "read_manual": "Please read this\nmanual carefully to\navoid any potential\nmisunderstanding",
+  "types_of_skin_cancer": "Types of Skin Cancer",
+  "types_description": "Skin cancer is one of the most common types of cancer, and understanding its varieties can help with early detection and treatment. Below are the seven types of skin cancer this app is designed to recognize.",
+  
+  "bcc_title": "1-Basal Cell Carcinoma (BCC)",
+  "bcc_description": "The most common and least dangerous type of skin cancer. It often appears as a small, shiny bump or patch of red skin.",
+  
+  "melanoma_title": "2-Melanoma",
+  "melanoma_description": "The most dangerous type of skin cancer. It may develop in existing moles or as new dark, irregular spots.",
+  
+  "nevus_title": "3-Melanocytic Nevus",
+  "nevus_description": "Commonly known as moles, these are usually benign skin growths caused by clusters of pigmented cells. While most are harmless, changes in size, shape, or color may require medical attention to rule out melanoma.",
+  
+  "vascular_title": "4-Vascular Lesion",
+  "vascular_description": "Abnormalities of blood vessels that appear as red, purple, or blue marks on the skin. These lesions are usually benign but may require treatment for cosmetic reasons or if they cause symptoms.",
+  
+  "keratosis_title": "5-Actinic Keratosis",
+  "keratosis_description": "A precancerous condition caused by sun damage, appearing as rough, scaly patches on exposed skin.",
+  
+  "dermatofibroma_title": "6-Dermatofibroma",
+  "dermatofibroma_description": "A benign, firm, small skin nodule that often appears on the lower legs. It is usually painless but may feel tender when pressed. Dermatofibromas are non-cancerous and generally harmless.",
+  
+  "benign_keratosis_title": "7-Benign Keratosis",
+  "benign_keratosis_description": "A non-cancerous growth that often appears as rough, raised, or warty spots on the skin. These growths are harmless and common in older adults, typically caused by sun exposure or aging.",
+
+  "early_detection_title": "Early Detection: Your Best Defense Against Skin Cancer",
+  "skin_cancer_occurs": "Skin cancer occurs when skin cells grow uncontrollably due to DNA damage, often from UV rays from the sun or tanning beds. There are three main types of skin cancer:",
+
+  "medical_tips": "Medical Tips",
+  "emergency_contacts": "Emergency Contacts",
+  "protect_skin": "Protect Your Skin from the Sun:",
+  "use_sunscreen": "• Use sunscreen daily with SPF 30 or higher.",
+  "wear_hat": "• Wear a hat and sunglasses when outdoors.",
+  "avoid_direct_sunlight": "• Avoid direct sunlight during peak hours.",
+  "regular_skin_checks": "Regular Skin Checks:",
+  "examine_monthly": "• Examine your skin monthly in front of a mirror.",
+  "look_for_changes": "• Look for unusual changes, such as dark spots or new moles.",
+  "wound_care": "Wound Care:",
+  "notice_wounds": "• If you notice wounds that don't heal or bleeding spots, consult a doctor.",
+  "help_description": "Find medical tips and emergency contacts to support your health and wellbeing.",
+  
+  "select_language": "اختر اللغة / Select Language",
+  "please_enter": "Please enter",
+  "validation_required": "This field is required",
+  "confirmation_delete": "Are you sure you want to delete this record?",
+  "confirm": "Confirm",
+  "delete": "Delete",
+  
+  "ambulance": "Ambulance:",
+  "ambulance_number": "• 123",
+  "medical_emergency_hotline": "Medical Emergency Hotline:",
+  "hotline_info": "• 137 (For urgent medical consultations and hospital referrals).",
+  "skin_cancer_support": "Skin Cancer Support:",
+  "cancer_institute_info": "• Call the Egyptian National Cancer Institute at 02 2365 1235 for guidance and support.",
+  
+  "privacy_policy_title": "Privacy Policy for Skin Cancer Detection App",
+  "effective_date": "Effective Date: February 2025",
+  "introduction_title": "Introduction:",
+  "introduction_text": "At Skin Cancer Detection, we value and respect your privacy. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our app, which uses AI technology to assist in skin cancer detection.",
+  
+  "info_collect_title": "1. Information We Collect:",
+  "info_collect_text": "We collect the following information:\n\n- Personal information: When you create an account, we may collect your name, email address, and other contact details.\n- Health-related information: You may upload images or provide details related to your skin health for analysis.\n- Usage data: We collect information about how you interact with the app, including device information, IP address, and log data.",
+  
+  "info_use_title": "2. How We Use Your Information:",
+  "info_use_text": "We use the information we collect to:\n\n- Provide personalized skin cancer detection results through our AI-based system.\n- Improve the performance and accuracy of our app.\n- Communicate with you regarding your account or updates to the app.\n- Analyze app usage to enhance user experience.",
+  
+  "data_security_title": "3. Data Security:",
+  "data_security_text": "We implement various security measures to protect your personal and health-related data. All sensitive information is transmitted using encryption, and we store it securely in our systems. However, no method of data transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.",
+  
+  "data_sharing_title": "4. Data Sharing:",
+  "data_sharing_text": "We do not sell, trade, or rent your personal information to third parties. However, we may share data with trusted service providers who assist us in running our app, provided they agree to keep this information confidential. We may also share data when required by law or to protect the rights and safety of our users.",
+  
+  "ai_analysis_title": "5. AI-Based Analysis:",
+  "ai_analysis_text": "The app uses AI to analyze images you upload for skin cancer detection. The AI model is trained using a large dataset of images, and it provides diagnostic suggestions based on patterns it recognizes. The results are for informational purposes only, and should not replace professional medical advice.",
+  
+  "user_rights_title": "6. User Rights:",
+  "user_rights_text": "You have the right to:\n\n- Access and update your personal information.\n- Request deletion of your data, subject to certain legal restrictions.\n- Opt-out of receiving marketing communications from us.\n- Request a copy of the data we have collected about you.",
+  
+  "policy_changes_title": "7. Changes to This Privacy Policy:",
+  "policy_changes_text": "We reserve the right to update this Privacy Policy from time to time. Any changes will be reflected in the app and on this page. We encourage you to review this policy periodically to stay informed about how we are protecting your information.",
+  
+  "contact_us_title": "8. Contact Us:",
+  "contact_us_text": "If you have any questions or concerns about our Privacy Policy, please contact us at: support@skincancerdetection.com"
+}

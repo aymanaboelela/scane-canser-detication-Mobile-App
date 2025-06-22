@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:scan_canser_detection/controllers/auth/auth_cubit.dart';
 import 'package:scan_canser_detection/core/constants/app_assets.dart';
+import 'package:scan_canser_detection/core/localization/language/language_cubit.dart';
 import 'package:scan_canser_detection/core/utils/router/app_router.dart';
 import 'package:scan_canser_detection/core/widgets/custom_bottom.dart';
 import 'package:scan_canser_detection/core/widgets/custom_text_filed.dart';
@@ -27,6 +28,9 @@ class _SignupScreenState extends State<SignupView> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.watch<LanguageCubit>().state;
+    final isArabic = locale.languageCode == 'ar';
+
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is CreateSuccess) {
@@ -34,9 +38,12 @@ class _SignupScreenState extends State<SignupView> {
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
-                title: const Text("Email Verification"),
-                content: const Text(
-                    "A verification email has been sent to your email address. Please check your inbox and verify your email before logging in."),
+                title: Text(isArabic
+                    ? "التحقق من البريد الإلكتروني"
+                    : "Email Verification"),
+                content: Text(isArabic
+                    ? "تم إرسال رسالة تحقق إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد والتحقق من بريدك الإلكتروني قبل تسجيل الدخول."
+                    : "A verification email has been sent to your email address. Please check your inbox and verify your email before logging in."),
                 actions: [
                   TextButton(
                     onPressed: () {
@@ -44,7 +51,7 @@ class _SignupScreenState extends State<SignupView> {
                       GoRouter.of(context).pushReplacement(
                           AppRouter.kLoginView); // Navigate to the login page
                     },
-                    child: const Text("OK"),
+                    child: Text(isArabic ? "موافق" : "OK"),
                   ),
                 ],
               );
@@ -67,10 +74,13 @@ class _SignupScreenState extends State<SignupView> {
                 padding: const EdgeInsets.only(top: 60, left: 25, right: 25),
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: isArabic
+                        ? CrossAxisAlignment.end
+                        : CrossAxisAlignment.start,
                     children: [
-                      const Center(
-                        child: Text("Sign Up",
-                            style: TextStyle(
+                      Center(
+                        child: Text(isArabic ? "إنشاء حساب" : "Sign Up",
+                            style: const TextStyle(
                                 fontSize: 24,
                                 fontFamily: 'Bahnschrift',
                                 color: Color(0xff00487C),
@@ -81,8 +91,8 @@ class _SignupScreenState extends State<SignupView> {
                       ),
                       CustomTextFormField(
                         controller: nameController,
-                        label: "Name",
-                        hintText: "Enter your name",
+                        label: isArabic ? "الاسم" : "Name",
+                        hintText: isArabic ? "أدخل اسمك" : "Enter your name",
                         icon: Icons.person_2_outlined,
                       ),
                       const SizedBox(
@@ -90,8 +100,10 @@ class _SignupScreenState extends State<SignupView> {
                       ),
                       CustomTextFormField(
                         controller: emailController,
-                        label: "Email",
-                        hintText: "Enter your email",
+                        label: isArabic ? "البريد الإلكتروني" : "Email",
+                        hintText: isArabic
+                            ? "أدخل بريدك الإلكتروني"
+                            : "Enter your email",
                         icon: Icons.email_outlined,
                       ),
                       const SizedBox(
@@ -100,15 +112,21 @@ class _SignupScreenState extends State<SignupView> {
                       CustomTextFormField(
                         validator: (p0) {
                           if (p0!.isEmpty) {
-                            return "please enter your password";
+                            return isArabic
+                                ? "يرجى إدخال كلمة المرور الخاصة بك"
+                                : "please enter your password";
                           } else if (p0.length < 8) {
-                            return "Password must be at least 8 characters";
+                            return isArabic
+                                ? "يجب أن تكون كلمة المرور 8 أحرف على الأقل"
+                                : "Password must be at least 8 characters";
                           }
                           return null;
                         },
                         controller: passwordController,
-                        label: "Password",
-                        hintText: "Enter your password",
+                        label: isArabic ? "كلمة المرور" : "Password",
+                        hintText: isArabic
+                            ? "أدخل كلمة المرور الخاصة بك"
+                            : "Enter your password",
                         isVisible: true,
                         icon: Icons.lock_outlined,
                       ),
@@ -119,7 +137,7 @@ class _SignupScreenState extends State<SignupView> {
                         height: 50,
                       ),
                       CustomBottom(
-                          text: "Create Account",
+                          text: isArabic ? "إنشاء حساب" : "Create Account",
                           ontap: () {
                             if (formKey.currentState!.validate()) {
                               context.read<AuthCubit>().createAccount(
@@ -135,9 +153,11 @@ class _SignupScreenState extends State<SignupView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
-                            "Alreadyhave an account ?",
-                            style: TextStyle(
+                          Text(
+                            isArabic
+                                ? "هل لديك حساب بالفعل؟"
+                                : "Already have an account ?",
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontFamily: 'Bahnschrift'),
@@ -147,9 +167,9 @@ class _SignupScreenState extends State<SignupView> {
                               GoRouter.of(context)
                                   .pushReplacement(AppRouter.kLoginView);
                             },
-                            child: const Text(
-                              "login",
-                              style: TextStyle(
+                            child: Text(
+                              isArabic ? "تسجيل الدخول" : "login",
+                              style: const TextStyle(
                                   color: Color(0xff00487C),
                                   fontSize: 14,
                                   fontFamily: 'Bahnschrift'),

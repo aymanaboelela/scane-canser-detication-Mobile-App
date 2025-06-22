@@ -26,9 +26,9 @@ class DetectionModel {
       id: map['id'],
       malignancyStatus: map['malignancy_status'],
       imagePath: map['image_path'],
-      name: map['name'],
+      name: map['diadnosis'],
       patientId: map['patient_id'],
-      description: map['description'] ?? '',
+      description: map['cancertype'] ?? '',
       probability: (map['probability']),
     );
   }
@@ -36,10 +36,10 @@ class DetectionModel {
   Map<String, dynamic> toMap() {
     return {
       'image_path': imagePath,
-      'name': name,
+      'diadnosis': name,
       "malignancy_status": malignancyStatus,
       'patient_id': patientId,
-      'description': description,
+      'cancertype': description,
       'probability': probability,
     };
   }

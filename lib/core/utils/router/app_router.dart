@@ -94,12 +94,9 @@ abstract class AppRouter {
       GoRoute(
         path: kInfoDitectionView,
         pageBuilder: (context, state) =>
-            PageTransitionManager.fadeTransition(BlocProvider(
-          create: (context) => CallCubit(),
-          child: InfoDetectionView(
-            image: state.extra as File,
-          ),
-        )),
+            PageTransitionManager.fadeTransition(InfoDetectionView(
+              image: state.extra as File,
+            )),
       ),
       GoRoute(
         path: kInfoDitectionHistoryView,
@@ -107,11 +104,11 @@ abstract class AppRouter {
          InfoDetectionHistoryView(detectionModel:  state.extra as DetectionModel,),
         ),
       ),
-      GoRoute(
-        path: kTeamsView,
-        pageBuilder: (context, state) =>
-            PageTransitionManager.fadeTransition(const TeamsView()),
-      ),
+      // GoRoute(
+      //   path: kTeamsView,
+      //   pageBuilder: (context, state) =>
+      //       PageTransitionManager.fadeTransition(const TeamsView()),
+      // ),
       GoRoute(
         path: kForgetPassword,
         pageBuilder: (context, state) =>

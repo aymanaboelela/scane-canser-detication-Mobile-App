@@ -1,11 +1,15 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scan_canser_detection/core/localization/app_localizations.dart';
+import 'package:scan_canser_detection/core/localization/language/language_cubit.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
-
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.watch<LanguageCubit>().state.languageCode == 'ar';
+
     return Scaffold(
       appBar: AppBar(),
       body: FadeInUp(
@@ -13,117 +17,130 @@ class PrivacyPolicyView extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment:
+                  isArabic ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
               children: [
                 Text(
-                  'Privacy Policy for Skin Cancer Detection App',
+                  AppLocalizations.of(context)
+                      .translate('privacy_policy_title'),
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'Effective Date: February 2025',
+                  AppLocalizations.of(context).translate('effective_date'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'Introduction:',
+                  AppLocalizations.of(context).translate('introduction_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'At Skin Cancer Detection, we value and respect your privacy. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our app, which uses AI technology to assist in skin cancer detection.',
+                  AppLocalizations.of(context).translate('introduction_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '1. Information We Collect:',
+                  AppLocalizations.of(context).translate('info_collect_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'We collect the following information:\n\n'
-                  '- Personal information: When you create an account, we may collect your name, email address, and other contact details.\n'
-                  '- Health-related information: You may upload images or provide details related to your skin health for analysis.\n'
-                  '- Usage data: We collect information about how you interact with the app, including device information, IP address, and log data.',
+                  AppLocalizations.of(context).translate('info_collect_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '2. How We Use Your Information:',
+                  AppLocalizations.of(context).translate('info_use_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'We use the information we collect to:\n\n'
-                  '- Provide personalized skin cancer detection results through our AI-based system.\n'
-                  '- Improve the performance and accuracy of our app.\n'
-                  '- Communicate with you regarding your account or updates to the app.\n'
-                  '- Analyze app usage to enhance user experience.',
+                  AppLocalizations.of(context).translate('info_use_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '3. Data Security:',
+                  AppLocalizations.of(context).translate('data_security_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'We implement various security measures to protect your personal and health-related data. All sensitive information is transmitted using encryption, and we store it securely in our systems. However, no method of data transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.',
+                  AppLocalizations.of(context).translate('data_security_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '4. Data Sharing:',
+                  AppLocalizations.of(context).translate('data_sharing_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'We do not sell, trade, or rent your personal information to third parties. However, we may share data with trusted service providers who assist us in running our app, provided they agree to keep this information confidential. We may also share data when required by law or to protect the rights and safety of our users.',
+                  AppLocalizations.of(context).translate('data_sharing_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '5. AI-Based Analysis:',
+                  AppLocalizations.of(context).translate('ai_analysis_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'The app uses AI to analyze images you upload for skin cancer detection. The AI model is trained using a large dataset of images, and it provides diagnostic suggestions based on patterns it recognizes. The results are for informational purposes only, and should not replace professional medical advice.',
+                  AppLocalizations.of(context).translate('ai_analysis_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '6. User Rights:',
+                  AppLocalizations.of(context).translate('user_rights_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'You have the right to:\n\n'
-                  '- Access and update your personal information.\n'
-                  '- Request deletion of your data, subject to certain legal restrictions.\n'
-                  '- Opt-out of receiving marketing communications from us.\n'
-                  '- Request a copy of the data we have collected about you.',
+                  AppLocalizations.of(context).translate('user_rights_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '7. Changes to This Privacy Policy:',
+                  AppLocalizations.of(context)
+                      .translate('policy_changes_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'We reserve the right to update this Privacy Policy from time to time. Any changes will be reflected in the app and on this page. We encourage you to review this policy periodically to stay informed about how we are protecting your information.',
+                  AppLocalizations.of(context).translate('policy_changes_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '8. Contact Us:',
+                  AppLocalizations.of(context).translate('contact_us_title'),
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'If you have any questions or concerns about our Privacy Policy, please contact us at: support@skincancerdetection.com',
+                  AppLocalizations.of(context).translate('contact_us_text'),
                   style: TextStyle(fontSize: 14),
+                  textAlign: isArabic ? TextAlign.right : TextAlign.left,
                 ),
               ],
             ),
